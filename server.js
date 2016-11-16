@@ -14,9 +14,17 @@ var db = require('./models');
 
 // routes
 
+// HTML
 app.get('/', function homepage(req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
+
+// app.get('/:username/wishlist', function wishlist(req, res) {
+//   res.sendFile(__dirname + '/views/wishlist.html');
+// });
+
+// JSON
+// app.get('/', controllers.user.index);
 
 // run server
 
