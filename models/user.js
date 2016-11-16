@@ -8,7 +8,10 @@ var UserSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: String
   }],
-  friends: [User.schema]
+  friends: [{
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  }]
 });
 
 var User = mongoose.model('User', UserSchema);
