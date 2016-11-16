@@ -1,2 +1,1 @@
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/bucketlist');
+module.exports.user = require('./userController');
