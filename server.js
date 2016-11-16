@@ -14,6 +14,9 @@ var db = require('./models');
 
 // routes
 
+app.get('/', function homepage(req, res) {
+  res.sendFile(__dirname + '/views/index.html');
+});
 
 // run server
 
