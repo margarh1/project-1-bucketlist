@@ -1,0 +1,25 @@
+{
+  "name": "project-1-bucketlist",
+  "version": "1.0.0",
+  "description": "Project 1: Bucketlist App",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/margarh1/project-1-bucketlist.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/margarh1/project-1-bucketlist/issues"
+  },
+  "homepage": "https://github.com/margarh1/project-1-bucketlist#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongoose": "^4.6.8"
+  }
+}
