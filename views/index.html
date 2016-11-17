@@ -23,7 +23,7 @@
       <div class="row">
         <script id="wish-template" type='text/x-handlebars-template'>
           <div class="col-md-10 col-md-offset-2">
-            <div class="{{type}}">
+            <div class="{{type}} {{_id}}">
               <!-- <img src={{imgUrl}}> -->
               <h3>{{name}}</h3>
               <p>{{price}}</p>
@@ -38,6 +38,9 @@
               <p>{{status}}</p>
             </div>
           </div>
+        </script>
+        <script id="friend-template" type='text/x-handlebars-template'>
+          <p>{{username}}</p>
         </script>
       </div>
     </div>

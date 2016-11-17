@@ -24,7 +24,9 @@ app.get('/', function homepage(req, res) {
 // });
 
 // JSON
-// app.get('/', controllers.user.index);
+app.get('/api/users', controllers.user.index);
+
+app.get('/api/users/:username', controllers.user.index);
 
 // run server
 
