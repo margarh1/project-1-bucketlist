@@ -11,7 +11,7 @@ var WishSchema = new Schema({
   websiteLink: String,
   imgUrl: String,
   description: String,
-  tags: String,
+  tags: [String],
   status: String,
   contactInfo: [Contact.schema]
 });

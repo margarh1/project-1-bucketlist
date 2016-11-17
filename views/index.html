@@ -19,5 +19,27 @@
   </head>
   <body>
     <h1>Sanity Check</h1>
+    <div class="container">
+      <div class="row">
+        <script id="wish-template" type='text/x-handlebars-template'>
+          <div class="col-md-10 col-md-offset-2">
+            <div class="{{type}}">
+              <!-- <img src={{imgUrl}}> -->
+              <h3>{{name}}</h3>
+              <p>{{price}}</p>
+              <p>{{location}}</p>
+              <p>{{dateToVisit}}</p>
+              <a href="{{websiteLink}}">Website</a>
+              <p>{{description}}</p>
+              <p>{{contactInfo.address}}</p>
+              <p>{{contactInfo.email}}</p>
+              <p>{{contactInfo.phoneNumber}}</p>
+              <p>{{tags}}</p>
+              <p>{{status}}</p>
+            </div>
+          </div>
+        </script>
+      </div>
+    </div>
   </body>
 </html>
