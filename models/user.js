@@ -1,13 +1,11 @@
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
+var Wish = require('./wish.js');
 
 var UserSchema = new Schema({
   username: String,
   password: String,
-  wishlist: [{
-    type: Schema.Types.ObjectId,
-    ref: String
-  }],
+  wishlist: [Wish.schema],
   friends: [{
     type: Schema.Types.ObjectId,
     ref: 'User'

@@ -1,4 +1,3 @@
-
 var db = require('./models');
 
 var places_list= [
