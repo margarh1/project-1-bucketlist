@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Bucketlist</title>
+
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+
+    <!-- VENDOR SCRIPTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.5/handlebars.min.js"></script>
+
+    <!-- APPLICATION SCRIPTS -->
+    <script src="scripts/app.js"></script>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Bucket List</a>
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <form class="navbar-form navbar-right">
+
+              <button type="submit" class="btn btn-success">Home</button>
+            </form>
+          </div><!--/.navbar-collapse -->
+        </div>
+      </nav>
+      <!-- PROFILE ASIDE  -->
+<div class="aside-container col-md-4 col-xs-12">
+<aside class="profile">
+  <img  class="user-image img-circle img-responsive">
+  <button type="submit" class="btn btn-success">Friends</button>
+</aside>
+</div>
+      <!-- wishList Beggining -->
+      <div class="jumbotron">
+          <button type="submit" class="btn btn-success">+Add</button>
+          <button type="submit" class="btn btn-success">Sort</button>
+        <div class="container">
+          <script id="wishList-template" type="text/x-handlebars-template">
+              <div class="row wish" data-wish-id={{_id}}>
+                  <div class="col-md-8 col-md-offset-1">
+                      <div class="panel panel-default">
+                          <div class="panel-body">
+                              <!-- begin wish internal row -->
+                              <div class='row'>
+                                  <div class="col-md-1 col-xs-12 thumbnail wish-art">
+                                      <img src="images/800x800.png" alt="wish-image">
+                                  </div>
+                                  <div class="col-md-7 col-xs-12">
+                                      <ul class="list-group">
+                                          <li class="list-group-item">
+                                              <h4 class='inline-header'>Name:</h4>
+                                              <span class='wish-name'>{{name}}</span>
+                                          </li>
+                                          <li class="list-group-item">
+                                              <h4 class='inline-header'>Type:</h4>
+                                              <span class='wish-type'>{{type}}</span>
+                                          </li>
+                                          <li class="list-group-item">
+                                              <h4 class='inline-header'>Price:</h4>
+                                              <span class='wish-price'>{{price}}</span>
+                                          </li>
+                                          <li class="list-group-item">
+                                              <h4 class='inline-header'>Location:</h4>
+                                              <span class='wish-location'>{{location}}</span>
+                                          </li>
+                                          <li class="list-group-item">
+                                              <h4 class='inline-header'>Date to visit:</h4>
+                                              <span class='wish-date'>{{dateToVisit}}</span>
+                                          </li>
+                                          <li class="list-group-item">
+                                              <h4 class='inline-header'>Website:</h4>
+                                              <span class='wish-website'>{{websiteLink}}</span>
+                                          </li>
+
+                                          <li class="list-group-item">
+                                              <h4 class='inline-header'>Description:</h4>
+                                              <span class='wish-description'>{{description}}</span>
+                                          </li>
+                                          <li class="list-group-item">
+                                              <h4 class='inline-header'>Tags:</h4>
+                                              <span class='wish-tags'>{{tags}}</span>
+                                          </li>
+                                          <li class="list-group-item">
+                                              <h4 class='inline-header'>Status:</h4>
+                                              <span class='wish-status'>{{status}}</span>
+                                          </li>
+
+                                          <li class="list-group-item">
+                                            <h4 class="wish-contact">Contact Info:</h4>
+                                            <p>Phone number: {{contactInfo.phoneNumber}}; Address: {{contactInfo.address}}; email: {{contactInfo.email}}</p>
+                                          </li>
+                                      </ul>
+                                  </div>
+                              </div>
+                              <!-- end of wishlist internal row -->
+                              <div class="edit-buttons">
+                              <button type="submit" class="btn btn-success">Link</button>
+                              <button type="submit" class="btn btn-warning">Delete</button>
+                              <button type="submit" class="btn btn-success">Edit</button>
+                              <button type="submit" class="btn btn-success">Share</button>
+                              </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <footer>
+          <p>&copy; 2016 Company, Inc.</p>
+        </footer>
+      </div> <!-- /container -->
+  </body>
+</html>

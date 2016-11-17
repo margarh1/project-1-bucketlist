@@ -19,9 +19,9 @@ app.get('/', function homepage(req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-// app.get('/:username/wishlist', function wishlist(req, res) {
-//   res.sendFile(__dirname + '/views/wishlist.html');
-// });
+app.get('/user', function wishlist(req, res) {
+  res.sendFile(__dirname + '/views/user.html');
+});
 
 // JSON
 app.get('/api/users', controllers.user.index);
