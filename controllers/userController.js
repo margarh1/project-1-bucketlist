@@ -3,7 +3,7 @@
 var sampleUsers = [
   {
     _id: 1,
-    username: '123',
+    username: 'onetwothree',
     password: '123',
     wishlist: [],
     friends: []
@@ -106,10 +106,17 @@ sampleUsers[1].friends.push(sampleUsers[2]);
 var db = require('../models');
 
 function index(req, res) {
+  console.log(req.params)
   for (user of sampleUsers) {
+    console.log("username: " + user.username);
+    console.log("req.params.username: "+ req.params.username);
     if (user.username === req.params.username) {
+      console.log('sending json');
       res.json(user);
-    };
+      break;
+    } else {
+      console.log("no user?!?!?!");
+    }
   };
   res.json(sampleUsers);
 };

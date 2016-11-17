@@ -19,14 +19,14 @@ app.get('/', function homepage(req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-app.get('/user', function wishlist(req, res) {
+app.get('/user/:username', function wishlist(req, res) {
   res.sendFile(__dirname + '/views/user.html');
 });
 
 // JSON
-app.get('/api/users', controllers.user.index);
+app.get('/api/user', controllers.user.index);
 
-app.get('/api/users/:username', controllers.user.index);
+app.get('/api/user/:username', controllers.user.index);
 
 // run server
 
