@@ -2,19 +2,10 @@ console.log('app.js is connected!');
 
 $(document).ready(function() {
 
-  // $.ajax({
-  //   method: 'GET',
-  //   url: '/api/user',
-  //   success: renderAllWishlists,
-  //   error: onError
-  // });
-  //
-  // $.ajax({
-  //   method: 'GET',
-  //   url: '/api/user/:username',
-  //   success: renderWishlist,
-  //   error: onError
-  // });
+  $('.create-bucket-list').on('click', function() {
+    console.log('create bucket list was clicked')
+    this.formAction = "http://localhost:3000/user/guest";
+  });
 
 });
 

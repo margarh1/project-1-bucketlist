@@ -70,6 +70,7 @@
         <input type="text" name="tags"/>
         <label for="status">Status?</label>
         <input type="text" name="status"/>
+        <input type="hidden" name="contactInfo" defaultValue="{}">
         <button type="submit">Add New Wish</button>
         <button type="button" class="cancel-button">Cancel</button>
       </form>
@@ -146,7 +147,7 @@
                     <a href="\{{websiteLink}}"><button type="submit" class="btn btn-success link-button" >Link to Website</button></a>
                     <button type="submit" class="btn btn-warning delete-button">Delete</button>
                     <button type="submit" class="btn btn-success edit-button">Edit</button>
-                    <button type="submit" class="btn btn-success share-button">Share</button>
+                    <a href="../{{user._id}}/\{{_id}}"><button type="submit" class="btn btn-success share-button">Share</button></a>
                   </div>
                 </div>
               </div>

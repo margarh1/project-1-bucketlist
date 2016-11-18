@@ -47,6 +47,58 @@ $(document).ready(function() {
 
   $('#wishes').on('click', '.edit-button', editForm);
 
+  $('#wishes').on('click', '.save-changes', function() {
+    console.log('save changes was clicked')
+    var wishId = $(this).closest('.wish').attr('data-wish-id');
+    var userId = $('#wishes').attr('data-user-id');
+    var inputFields = $(this).closest('.wish').find('input');
+    var updatedData = [];
+    for (input of inputFields) {
+      var value = encodeURIComponent(input.value);
+      switch (input.className) {
+        case ('wish-name'):
+          updatedData.push('name=' + value);
+          break;
+        case ('wish-price'):
+          updatedData.push('price=' + value);
+          break;
+        case ('wish-location'):
+          updatedData.push('location=' + value);
+          break;
+        case ('wish-date'):
+          updatedData.push('dateToVisit=' + value);
+          break;
+        case ('wish-description'):
+          updatedData.push('description=' + value);
+          break;
+        case ('wish-tags'):
+          updatedData.push('tags=' + value);
+          break;
+        case ('wish-status'):
+          updatedData.push('status=' + value);
+          break;
+        case ('wish-contact-phone'):
+          updatedData.push('phoneNumber=' + value);
+          break;
+        case ('wish-contact-address'):
+          updatedData.push('address=' + value);
+          break;
+        case ('wish-contact-email'):
+          updatedData.push('email=' + value);
+          break;
+      };
+    };
+    updatedData = updatedData.join('&');
+    console.log(updatedData);
+    $.ajax({
+      method: 'PUT',
+      url: '/api/user/' + userId + '/' + wishId,
+      data: updatedData,
+      success: updatedWishlist,
+      error: onError
+    });
+  });
+
 });
 
 function renderWishlist(json) {
@@ -85,7 +137,6 @@ function newWishForm() {
   for (var idx = 0; idx < inputSpans.length; idx++) {
     var current = inputSpans[idx];
     current.outerHTML = "<input class=" + current.className + "></input>";
-    // $(this).closest('.wish').find('input')[idx].defaultValue = current.textContent;
   };
 };
 
@@ -102,15 +153,19 @@ function clearForm() {
 };
 
 function editForm() {
-  console.log($(this).closest('.wish').find('button'))
+  console.log('edit was clicked')
   $(this).text('Save Changes');
-  $(this).toggleClass('save-changes').removeClass('edit-album');
+  $(this).toggleClass('save-changes').removeClass('edit-button');
   var inputSpans = $(this).closest('.wish').find('span');
   for (var idx = 0; idx < inputSpans.length; idx++) {
     var current = inputSpans[idx];
     current.outerHTML = "<input class=" + current.className + "></input>";
     $(this).closest('.wish').find('input')[idx].defaultValue = current.textContent;
   };
+};
+
+function updatedWishlist(json) {
+  console.log(json);
 };
 
 
