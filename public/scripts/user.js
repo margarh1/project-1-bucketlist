@@ -73,7 +73,7 @@ function onError(xhr, status, errorThrown) {
 };
 
 function newWishForm() {
-
+  
 };
 
 function deletedWishlist(json) {

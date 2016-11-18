@@ -3,7 +3,6 @@
 var db = require('../models');
 
 function index(req, res) {
-  console.log(req.params)
   db.User.findOne({username: req.params.username}, function(err, user) {
     if (err) { return console.log(err); }
     res.json(user);
@@ -11,7 +10,6 @@ function index(req, res) {
 };
 
 function create(req, res) {
-  console.log(req.params);
   var tagsArr = req.body.tags.split();
   var newWish = new db.Wish({
     name: req.body.name,
@@ -49,7 +47,6 @@ function show(req, res) {
 };
 
 function destroy(req, res) {
-  console.log(req.params)
   db.User.findOne({username: req.params.username}, function(err, user) {
     if (err) {return console.log(err)};
     for (wish of user.wishlist) {

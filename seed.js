@@ -24,7 +24,7 @@ var sampleUsers = [
 var sampleWishes = [
   {
     name: "Monopoly",
-    type: "Thing",
+    type: "thing",
     price: "3.99",
     location: "",
     dateToVisit: "",
@@ -37,7 +37,7 @@ var sampleWishes = [
   },
   {
     name: "Sequoia National Park",
-    type: "Place",
+    type: "place",
     price: "",
     location: "California 93271",
     dateToVisit: "January 1, 2017",
@@ -50,7 +50,7 @@ var sampleWishes = [
   },
   {
     name: "Visit Home",
-    type: "Person",
+    type: "person",
     price: "",
     location: "San Juan",
     dateToVisit: "Christmas",
