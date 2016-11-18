@@ -2,12 +2,12 @@ console.log('app.js is connected!');
 
 $(document).ready(function() {
 
-  $.ajax({
-    method: 'GET',
-    url: '/api/user',
-    success: renderAllWishlists,
-    error: onError
-  });
+  // $.ajax({
+  //   method: 'GET',
+  //   url: '/api/user',
+  //   success: renderAllWishlists,
+  //   error: onError
+  // });
   //
   // $.ajax({
   //   method: 'GET',

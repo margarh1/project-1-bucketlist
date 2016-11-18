@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var app = express();
 
 app.use(express.static(__dirname + '/public'));
+// WHY IS EXTENDED FALSE////////////////////////////////////////
 app.use(bodyParser.urlencoded({ extended: false }));
 app.set('view engine', 'hbs');
 
