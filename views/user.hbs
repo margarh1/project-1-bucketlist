@@ -41,11 +41,11 @@
     </div>
       <!-- wishList Beggining -->
     <div class="jumbotron">
-      <button type="submit" class="btn btn-success">+Add</button>
+      <button type="submit" class="btn btn-success add-wish">+Add</button>
       <button type="submit" class="btn btn-success">Sort</button>
-      <div class="container" id="wishes">
+      <div class="container" id="wishes" data-user-id='{{user._id}}' >
         <script id="wish-template" type="text/x-handlebars-template">
-          <div class="row wish" data-wish-id={{_id}}>
+          <div class="row wish">
             <div class="col-md-8 col-md-offset-1">
               <div class="panel panel-default">
                 <div class="panel-body">
@@ -58,45 +58,45 @@
                       <ul class="list-group">
                         <li class="list-group-item">
                           <h4 class='inline-header'>Name:</h4>
-                          <span class='wish-name'>{{name}}</span>
+                          <span class='wish-name'>\{{name}}</span>
                         </li>
                         <li class="list-group-item">
                           <h4 class='inline-header'>Type:</h4>
-                          <span class='wish-type'>{{type}}</span>
+                          <span class='wish-type'>\{{type}}</span>
                         </li>
                         <li class="list-group-item">
                           <h4 class='inline-header'>Price:</h4>
-                          <span class='wish-price'>{{price}}</span>
+                          <span class='wish-price'>\{{price}}</span>
                         </li>
                         <li class="list-group-item">
                           <h4 class='inline-header'>Location:</h4>
-                          <span class='wish-location'>{{location}}</span>
+                          <span class='wish-location'>\{{location}}</span>
                         </li>
                         <li class="list-group-item">
                           <h4 class='inline-header'>Date to visit:</h4>
-                          <span class='wish-date'>{{dateToVisit}}</span>
+                          <span class='wish-date'>\{{dateToVisit}}</span>
                         </li>
                         <li class="list-group-item">
                           <h4 class='inline-header'>Website:</h4>
-                          <span class='wish-website'>{{websiteLink}}</span>
+                          <span class='wish-website'>\{{websiteLink}}</span>
                         </li>
 
                         <li class="list-group-item">
                           <h4 class='inline-header'>Description:</h4>
-                          <span class='wish-description'>{{description}}</span>
+                          <span class='wish-description'>\{{description}}</span>
                         </li>
                         <li class="list-group-item">
                           <h4 class='inline-header'>Tags:</h4>
-                          <span class='wish-tags'>{{tags}}</span>
+                          <span class='wish-tags'>\{{tags}}</span>
                         </li>
                         <li class="list-group-item">
                           <h4 class='inline-header'>Status:</h4>
-                          <span class='wish-status'>{{status}}</span>
+                          <span class='wish-status'>\{{status}}</span>
                         </li>
 
                         <li class="list-group-item">
                           <h4 class="wish-contact">Contact Info:</h4>
-                          <p>Phone number: {{contactInfo.phoneNumber}}; Address: {{contactInfo.address}}; Email: {{contactInfo.email}}</p>
+                          <p>Phone number: \{{contactInfo.phoneNumber}}; Address: \{{contactInfo.address}}; Email: \{{contactInfo.email}}</p>
                         </li>
                       </ul>
                     </div>

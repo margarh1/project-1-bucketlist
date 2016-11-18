@@ -8,6 +8,7 @@ var app = express();
 
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: false }));
+app.set('view engine', 'hbs');
 
 var controllers = require('./controllers');
 var db = require('./models');
@@ -20,7 +21,9 @@ app.get('/', function homepage(req, res) {
 });
 
 app.get('/user/:username', function wishlist(req, res) {
-  res.sendFile(__dirname + '/views/user.html');
+  db.User.findOne({username: req.params.username}, function(err, foundUser) {
+    res.render('user', {user: foundUser});
+  });
 });
 
 // JSON
