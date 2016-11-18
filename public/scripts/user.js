@@ -25,20 +25,18 @@ $(document).ready(function() {
       method: 'POST',
       url: userUrl,
       data: $(this).serialize(),
-      success: renderAllWishlists,
+      success: renderWishlist,
       error: onError
     });
-  });
-
-  $('#add-new-wish').on('click', '.cancel-button', function(event) {
     var form = $(this).closest('form');
     form.find('input').prop('value', '');
     form.find('textarea').prop('value', '');
     form.find('input:checked').prop('checked', false);
   });
 
+  $('#add-new-wish').on('click', '.cancel-button', clearForm);
+
   $('#wishes').on('click', '.delete-button', function() {
-    console.log('delete button clicked');
     var wishId = $(this).closest('.wish').attr('data-wish-id');
     var userId = userUrl + '/' + wishId;
     $.ajax({
@@ -47,6 +45,21 @@ $(document).ready(function() {
       success: deletedWishlist,
       error: onError
     });
+  });
+
+  $('#wishes').on('click', '.edit-button', function() {
+    console.log('edit button clicked');
+    var wishId = $(this).closest('.wish').attr('data-wish-id');
+    console.log(wishId)
+    $(this).text('Save Changes');
+    $(this).toggleClass('save-changes').removeClass('edit-album');
+    var inputSpans = $(this).closest('.wish').find('span');
+    console.log(inputSpans)
+    // for (var idx = 0; idx < inputSpans.length; idx++) {
+    //   var current = inputSpans[idx];
+    //   current.outerHTML = "<input class=" + current.className + "></input>";
+    //   $(this).closest('.album').find('input')[idx].defaultValue = current.textContent;
+    // };
   });
 
 });
@@ -67,6 +80,7 @@ function renderFriendsList(json) {
 }
 
 function renderAllWishlists(json) {
+  $('#wishes').detach('.wish');
   json.wishlist.forEach(function(wishes) {
     renderWishlist(wishes);
   });
@@ -84,8 +98,16 @@ function newWishForm() {
 };
 
 function deletedWishlist(json) {
-  $('#wishes').detach('.wish');
-  renderAllWishlists(json);
+  console.log(json)
+  var deletedWish = '.wish[data-wish-id="' + json._id + '"';
+  $(deletedWish).empty();
+};
+
+function clearForm() {
+  var form = $(this).closest('form');
+  form.find('input').prop('value', '');
+  form.find('textarea').prop('value', '');
+  form.find('input:checked').prop('checked', false);
 };
 
 

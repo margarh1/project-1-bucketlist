@@ -84,7 +84,7 @@
                   <!-- Wish Image -->
                   <div class='row'>
                     <div class="col-md-1 col-xs-12 thumbnail wish-art">
-                      <img src="{{imgUrl}}" alt="wish-image">
+                      <img src="\{{imgUrl}}" alt="wish-image">
                     </div>
 
                     <!-- Wish Item -->
@@ -131,7 +131,9 @@
 
                         <li class="list-group-item">
                           <h4 class="wish-contact">Contact Info:</h4>
-                          <p>Phone number: \{{contactInfo.phoneNumber}}; Address: \{{contactInfo.address}}; Email: \{{contactInfo.email}}</p>
+                          <span class="wish-contact"><p>Phone number: \{{contactInfo.phoneNumber}};</p>
+                          <p>Address: \{{contactInfo.address}};</p>
+                          <p>Email: \{{contactInfo.email}}</p></span>
                         </li>
                       </ul>
                     </div>

@@ -11,25 +11,25 @@ function index(req, res) {
 
 function create(req, res) {
   var tagsArr = req.body.tags.split();
-  var newWish = new db.Wish({
-    name: req.body.name,
-    type: req.body.type,
-    price: req.body.price,
-    location: req.body.location,
-    dateToVisit: req.body.dateToVisit,
-    websiteLink: req.body.websiteLink,
-    description: req.body.description,
-    tags: tagsArr,
-    status: req.body.status
-  });
+  // var newWish = new db.Wish({
+  //   name: req.body.name,
+  //   type: req.body.type,
+  //   price: req.body.price,
+  //   location: req.body.location,
+  //   dateToVisit: req.body.dateToVisit,
+  //   websiteLink: req.body.websiteLink,
+  //   description: req.body.description,
+  //   tags: tagsArr,
+  //   status: req.body.status
+  // });
 
   db.User.findOne({username: req.params.username}, function(err, user) {
     if (err) { return console.log(err); }
-    user.wishlist.push(newWish);
+    user.wishlist.push(req.body);
     user.save(function(err, user) {
       if (err) { return console.log('error creating ' + wish) }
-      console.log('created ' + newWish);
-      res.json(user);
+      console.log('created ' + req.body.name);
+      res.json(req.body);
     });
   });
 };
@@ -55,7 +55,7 @@ function destroy(req, res) {
         user.wishlist.splice(wishNum, 1);
         user.save(function(err, user) {
           if (err) {return console.log(err)};
-          res.json(user);
+          res.json(wish);
         });
       };
     };

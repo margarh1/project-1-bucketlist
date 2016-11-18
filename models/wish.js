@@ -13,7 +13,7 @@ var WishSchema = new Schema({
   description: String,
   tags: [String],
   status: String,
-  contactInfo: [Contact.schema]
+  contactInfo: Contact.schema
 });
 
 var Wish = mongoose.model('Wish', WishSchema);
