@@ -11,9 +11,7 @@ $(document).ready(function() {
     error: onError
   });
 
-  $('.add-wish').on('click', function() {
-    console.log('add wish clicked');
-  });
+  $('.add-wish').on('click', newWishForm);
 
   $('.to-homepage').on('click', function() {
     this.formAction = 'http://localhost:3000/';
@@ -47,20 +45,7 @@ $(document).ready(function() {
     });
   });
 
-  $('#wishes').on('click', '.edit-button', function() {
-    console.log('edit button clicked');
-    var wishId = $(this).closest('.wish').attr('data-wish-id');
-    console.log(wishId)
-    $(this).text('Save Changes');
-    $(this).toggleClass('save-changes').removeClass('edit-album');
-    var inputSpans = $(this).closest('.wish').find('span');
-    console.log(inputSpans)
-    // for (var idx = 0; idx < inputSpans.length; idx++) {
-    //   var current = inputSpans[idx];
-    //   current.outerHTML = "<input class=" + current.className + "></input>";
-    //   $(this).closest('.album').find('input')[idx].defaultValue = current.textContent;
-    // };
-  });
+  $('#wishes').on('click', '.edit-button', editForm);
 
 });
 
@@ -71,16 +56,15 @@ function renderWishlist(json) {
   $('#wishes').prepend(wishHtml);
 };
 
-function renderFriendsList(json) {
-  var friendSource = $('#friend-template').html();
-  var friendTemplate = Handlebars.compile(friendSource);
-  var friendHtml = friendTemplate(json);
-  console.log(friendHtml);
-  $('#wishes').append(friendHtml);
-}
+// function renderFriendsList(json) {
+//   var friendSource = $('#friend-template').html();
+//   var friendTemplate = Handlebars.compile(friendSource);
+//   var friendHtml = friendTemplate(json);
+//   console.log(friendHtml);
+//   $('#wishes').append(friendHtml);
+// };
 
 function renderAllWishlists(json) {
-  $('#wishes').detach('.wish');
   json.wishlist.forEach(function(wishes) {
     renderWishlist(wishes);
   });
@@ -94,11 +78,18 @@ function onError(xhr, status, errorThrown) {
 };
 
 function newWishForm() {
-
+  console.log('add wish clicked');
+  renderWishlist();
+  var newWish = $('.wish').eq(0);
+  var inputSpans = newWish.find('span');
+  for (var idx = 0; idx < inputSpans.length; idx++) {
+    var current = inputSpans[idx];
+    current.outerHTML = "<input class=" + current.className + "></input>";
+    // $(this).closest('.wish').find('input')[idx].defaultValue = current.textContent;
+  };
 };
 
 function deletedWishlist(json) {
-  console.log(json)
   var deletedWish = '.wish[data-wish-id="' + json._id + '"';
   $(deletedWish).empty();
 };
@@ -108,6 +99,18 @@ function clearForm() {
   form.find('input').prop('value', '');
   form.find('textarea').prop('value', '');
   form.find('input:checked').prop('checked', false);
+};
+
+function editForm() {
+  console.log($(this).closest('.wish').find('button'))
+  $(this).text('Save Changes');
+  $(this).toggleClass('save-changes').removeClass('edit-album');
+  var inputSpans = $(this).closest('.wish').find('span');
+  for (var idx = 0; idx < inputSpans.length; idx++) {
+    var current = inputSpans[idx];
+    current.outerHTML = "<input class=" + current.className + "></input>";
+    $(this).closest('.wish').find('input')[idx].defaultValue = current.textContent;
+  };
 };
 
 

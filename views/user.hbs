@@ -131,16 +131,19 @@
 
                         <li class="list-group-item">
                           <h4 class="wish-contact">Contact Info:</h4>
-                          <span class="wish-contact"><p>Phone number: \{{contactInfo.phoneNumber}};</p>
-                          <p>Address: \{{contactInfo.address}};</p>
-                          <p>Email: \{{contactInfo.email}}</p></span>
+                          <h5 class="wish-contact-phone">Phone number:</h5>
+                          <span class="wish-contact-phone">\{{contactInfo.phoneNumber}}</span>
+                          <h5 class="wish-contact-address">Address:</h5>
+                          <span class="wish-contact-address">\{{contactInfo.address}}</span>
+                          <h5 class="wish-contact-email">Email:</h5>
+                          <span class="wish-contact-email">\{{contactInfo.email}}</span>
                         </li>
                       </ul>
                     </div>
                   </div>
                   <!-- end of wishlist internal row -->
                   <div class="edit-buttons">
-                    <a href="\{{websiteLink}}"><button type="submit" class="btn btn-success link-button">Link to Website</button></a>
+                    <a href="\{{websiteLink}}"><button type="submit" class="btn btn-success link-button" >Link to Website</button></a>
                     <button type="submit" class="btn btn-warning delete-button">Delete</button>
                     <button type="submit" class="btn btn-success edit-button">Edit</button>
                     <button type="submit" class="btn btn-success share-button">Share</button>
