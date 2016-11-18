@@ -27,7 +27,7 @@
         <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right">
 
-            <button type="submit" class="btn btn-success">Home</button>
+            <button type="submit" class="btn btn-success to-homepage">Home</button>
           </form>
         </div><!--/.navbar-collapse -->
       </div>
@@ -43,7 +43,31 @@
     <div class="jumbotron">
       <button type="submit" class="btn btn-success add-wish">+Add</button>
       <button type="submit" class="btn btn-success">Sort</button>
+      <!-- end new wish form -->
       <div class="container" id="wishes" data-user-id='{{user._id}}' >
+      <!-- new wish form -->
+      <form id="add-new-wish" class="col-md-4 col-xs-12">
+        <label for='name'>Wish Name:</label>
+        <input type="text" name="name" />
+        <label for="type">What kind of wish is this?</label>
+        <input type="radio" name="type" value="Person" />Someone you want to see or meet
+        <input type="radio" name="type" value="Place" />Somewhere you want to go
+        <input type="radio" name="type" value="Thing" />Something you want to get
+        <label for="price">How much is it?</label>
+        <input type="text" name="price" />
+        <label for="location">Where is it?</label>
+        <input type="text" name="location"/>
+        <label for="dateToVisit">When are you planning to go?</label>
+        <input type="text" name="dateToVisit"/>
+        <label for="websiteLink">Where can you find it on the Internet?</label>
+        <input type="text" name="websiteLink"/>
+        <label for="description">Describe it:</label>
+        <textarea name="description"></textarea>
+        <label for="tags">Add some tags:</label>
+        <input type="text" name="tags"/>
+        <label for="status">Status?</label>
+        <input type="text" name="status"/>
+      </form>
         <script id="wish-template" type="text/x-handlebars-template">
           <div class="row wish">
             <div class="col-md-8 col-md-offset-1">

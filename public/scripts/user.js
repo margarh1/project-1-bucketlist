@@ -12,7 +12,11 @@ $(document).ready(function() {
   });
 
   $('.add-wish').on('click', function() {
-    console.log('clicked');
+    console.log('add wish clicked');
+  });
+
+  $('.to-homepage').on('click', function() {
+    this.formAction = 'http://localhost:3000/';
   });
 
 });
@@ -43,6 +47,10 @@ function onError(xhr, status, errorThrown) {
   console.log('Error: ' + errorThrown);
   console.log('Status: ' + status);
   console.dir(xhr);
+};
+
+function newWishForm() {
+
 };
 
 
