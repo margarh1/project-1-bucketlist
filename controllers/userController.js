@@ -3,9 +3,10 @@
 var db = require('../models');
 
 function index(req, res) {
-  db.User.findOne({username: req.params.username}, function(err, users) {
+  console.log(req.params)
+  db.User.findOne({username: req.params.username}, function(err, user) {
     if (err) { return console.log(err); }
-    res.json(users);
+    res.json(user);
   });
 };
 
@@ -24,11 +25,15 @@ function create(req, res) {
     status: req.body.status
   });
 
-  // newWish.save(function(err, wish) {
-  //   if (err) { return console.log('error creating ' + wish); }
-  //   console.log('created ' + wish);
-  //   res.json(wish);
-  // });
+  db.User.findOne({username: req.params.username}, function(err, user) {
+    if (err) { return console.log(err); }
+    user.wishlist.push(newWish);
+    user.save(function(err, user) {
+      if (err) { return console.log('error creating ' + wish) }
+      console.log('created ' + newWish);
+      res.json(user);
+    });
+  });
 };
 
 function show(req, res) {
