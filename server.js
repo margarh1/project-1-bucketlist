@@ -29,6 +29,8 @@ app.get('/user/:username', function wishlist(req, res) {
 // JSON
 app.get('/api/user/:username', controllers.user.index);
 app.post('/api/user/:username', controllers.user.create);
+app.get('/api/user/:username/:wish', controllers.user.show);
+app.delete('/api/user/:username/:wish', controllers.user.destroy);
 
 // run server
 

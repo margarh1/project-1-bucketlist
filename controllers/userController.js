@@ -37,11 +37,27 @@ function create(req, res) {
 };
 
 function show(req, res) {
-
+  db.User.findOne({username: req.params.username}, function(err, user) {
+    if (err) {return console.log(err)};
+    for (wish of user.wishlist) {
+      if (req.params.wish === wish._id.toString()) {
+        res.json(wish);
+        break;
+      };
+    };
+  });
 };
 
 function destroy(req, res) {
-
+  console.log(req.params)
+  db.User.findOne({username: req.params.username}, function(err, user) {
+    if (err) {return console.log(err)};
+    for (wish of user.wishlist) {
+      if (req.params.wish === wish._id.toString()) {
+        user.wishlist
+      };
+    };
+  });
 };
 
 function update(req, res) {

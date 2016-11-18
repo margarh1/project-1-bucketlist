@@ -25,7 +25,19 @@ $(document).ready(function() {
       method: 'POST',
       url: userUrl,
       data: $(this).serialize(),
-      success: renderWishlist,
+      success: renderAllWishlists,
+      error: onError
+    });
+  });
+
+  $('#wishes').on('click', '.delete-button', function() {
+    console.log('delete button clicked');
+    var wishId = $(this).closest('.wish').attr('data-wish-id');
+    var userId = userUrl + '/' + wishId;
+    $.ajax({
+      method: 'DELETE',
+      url: userId,
+      success: deletedWishlist,
       error: onError
     });
   });
@@ -61,6 +73,10 @@ function onError(xhr, status, errorThrown) {
 };
 
 function newWishForm() {
+
+};
+
+function deletedWishlist(json) {
 
 };
 

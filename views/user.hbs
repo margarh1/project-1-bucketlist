@@ -70,7 +70,7 @@
         <button type="submit">Add New Wish</button>
       </form>
         <script id="wish-template" type="text/x-handlebars-template">
-          <div class="row wish">
+          <div class="row wish" data-wish-id=\{{_id}}>
             <div class="col-md-8 col-md-offset-1">
               <div class="panel panel-default">
                 <div class="panel-body">
@@ -129,9 +129,9 @@
                   <!-- end of wishlist internal row -->
                   <div class="edit-buttons">
                     <button type="submit" class="btn btn-success">Link</button>
-                    <button type="submit" class="btn btn-warning">Delete</button>
-                    <button type="submit" class="btn btn-success">Edit</button>
-                    <button type="submit" class="btn btn-success">Share</button>
+                    <button type="submit" class="btn btn-warning delete-button">Delete</button>
+                    <button type="submit" class="btn btn-success edit-button">Edit</button>
+                    <button type="submit" class="btn btn-success share-button">Share</button>
                   </div>
                 </div>
               </div>
