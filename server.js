@@ -8,6 +8,7 @@ var app = express();
 
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: false }));
+app.set('view engine', 'hbs');
 
 var controllers = require('./controllers');
 var db = require('./models');
@@ -19,14 +20,17 @@ app.get('/', function homepage(req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-app.get('/user', function wishlist(req, res) {
-  res.sendFile(__dirname + '/views/user.html');
+app.get('/user/:username', function wishlist(req, res) {
+  db.User.findOne({username: req.params.username}, function(err, foundUser) {
+    res.render('user', {user: foundUser});
+  });
 });
 
 // JSON
-app.get('/api/user', controllers.user.index);
-
-app.get('/api/user/:username', controllers.user.index);
+app.get('/api/user/:username', controllers.wish.index);
+app.post('/api/user/:username', controllers.wish.create);
+app.get('/api/user/:username/:wish', controllers.wish.show);
+app.delete('/api/user/:username/:wish', controllers.wish.destroy);
 
 // run server
 
