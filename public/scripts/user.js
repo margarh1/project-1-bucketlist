@@ -30,6 +30,13 @@ $(document).ready(function() {
     });
   });
 
+  $('#add-new-wish').on('click', '.cancel-button', function(event) {
+    var form = $(this).closest('form');
+    form.find('input').prop('value', '');
+    form.find('textarea').prop('value', '');
+    form.find('input:checked').prop('checked', false);
+  });
+
   $('#wishes').on('click', '.delete-button', function() {
     console.log('delete button clicked');
     var wishId = $(this).closest('.wish').attr('data-wish-id');
@@ -73,7 +80,7 @@ function onError(xhr, status, errorThrown) {
 };
 
 function newWishForm() {
-  
+
 };
 
 function deletedWishlist(json) {

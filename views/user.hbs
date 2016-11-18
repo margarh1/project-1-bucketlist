@@ -49,11 +49,11 @@
       <button type="submit" class="btn btn-success">Sort</button>
       <div class="container" id="wishes" data-user-id='{{user.username}}' >
       <!-- new wish form -->
-      <!-- <form id="add-new-wish" class="col-md-6 col-xs-12">
+      <form id="add-new-wish" class="col-md-6 col-xs-12">
         <label for='name'>Wish Name:</label>
-        <input type="text" name="name" />
+        <input type="text" name="name" required="true" />
         <label for="type">What kind of wish is this?</label>
-        <input type="radio" name="type" value="person" />Someone you want to see or meet
+        <input type="radio" name="type" value="person" required="true" />Someone you want to see or meet
         <input type="radio" name="type" value="place" />Somewhere you want to go
         <input type="radio" name="type" value="thing" />Something you want to get
         <label for="price">How much is it?</label>
@@ -71,7 +71,8 @@
         <label for="status">Status?</label>
         <input type="text" name="status"/>
         <button type="submit">Add New Wish</button>
-      </form> -->
+        <button type="button" class="cancel-button">Cancel</button>
+      </form>
       <!-- end new wish form -->
         <script id="wish-template" type="text/x-handlebars-template">
           <div class="row wish \{{type}}" data-wish-id='\{{_id}}'>
