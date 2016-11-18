@@ -44,9 +44,9 @@
       <button type="submit" class="btn btn-success add-wish">+Add</button>
       <button type="submit" class="btn btn-success">Sort</button>
       <!-- end new wish form -->
-      <div class="container" id="wishes" data-user-id='{{user._id}}' >
+      <div class="container" id="wishes" data-user-id='{{user.username}}' >
       <!-- new wish form -->
-      <form id="add-new-wish" class="col-md-4 col-xs-12">
+      <form id="add-new-wish" class="col-md-6 col-xs-12">
         <label for='name'>Wish Name:</label>
         <input type="text" name="name" />
         <label for="type">What kind of wish is this?</label>
@@ -67,6 +67,7 @@
         <input type="text" name="tags"/>
         <label for="status">Status?</label>
         <input type="text" name="status"/>
+        <button type="submit">Add New Wish</button>
       </form>
         <script id="wish-template" type="text/x-handlebars-template">
           <div class="row wish">

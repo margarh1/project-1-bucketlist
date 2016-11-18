@@ -19,6 +19,17 @@ $(document).ready(function() {
     this.formAction = 'http://localhost:3000/';
   });
 
+  $('#add-new-wish').on('submit', function(event) {
+    event.preventDefault();
+    $.ajax({
+      method: 'POST',
+      url: userUrl,
+      data: $(this).serialize(),
+      success: renderWishlist,
+      error: onError
+    });
+  });
+
 });
 
 function renderWishlist(json) {
