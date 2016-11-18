@@ -4,25 +4,26 @@ $(document).ready(function() {
 
   $.ajax({
     method: 'GET',
-    url: '/api/users',
+    url: '/api/user',
     success: renderAllWishlists,
     error: onError
   });
-
-  $.ajax({
-    method: 'GET',
-    url: '/api/users/:username',
-    success: renderWishlist,
-    error: onError
-  });
+  //
+  // $.ajax({
+  //   method: 'GET',
+  //   url: '/api/user/:username',
+  //   success: renderWishlist,
+  //   error: onError
+  // });
 
 });
 
 function renderWishlist(json) {
+  console.log(json)
   var wishSource = $('#wish-template').html();
   var wishTemplate = Handlebars.compile(wishSource);
   var wishHtml = wishTemplate(json);
-  $('.row').append(wishHtml);
+  $('#wishes').append(wishHtml);
 };
 
 function renderFriendsList(json) {
@@ -34,12 +35,12 @@ function renderFriendsList(json) {
 
 function renderAllWishlists(json) {
   json.forEach(function(user) {
-    for (wishlist of user.wishlist) { 
+    for (wishlist of user.wishlist) {
       renderWishlist(wishlist);
     };
-    user.friends.forEach(function(friends) {
-      renderFriendsList(friends);
-    });
+    // user.friends.forEach(function(friends) {
+    //   renderFriendsList(friends);
+    // });
   });
 };
 
@@ -49,6 +50,3 @@ function onError(xhr, status, errorThrown) {
   console.log('Status: ' + status);
   console.dir(xhr);
 };
-
-
-
