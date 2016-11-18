@@ -77,7 +77,8 @@ function newWishForm() {
 };
 
 function deletedWishlist(json) {
-
+  $('#wishes').detach('.wish');
+  renderAllWishlists(json);
 };
 
 

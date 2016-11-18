@@ -27,10 +27,10 @@ app.get('/user/:username', function wishlist(req, res) {
 });
 
 // JSON
-app.get('/api/user/:username', controllers.user.index);
-app.post('/api/user/:username', controllers.user.create);
-app.get('/api/user/:username/:wish', controllers.user.show);
-app.delete('/api/user/:username/:wish', controllers.user.destroy);
+app.get('/api/user/:username', controllers.wish.index);
+app.post('/api/user/:username', controllers.wish.create);
+app.get('/api/user/:username/:wish', controllers.wish.show);
+app.delete('/api/user/:username/:wish', controllers.wish.destroy);
 
 // run server
 

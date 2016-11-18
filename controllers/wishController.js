@@ -54,7 +54,12 @@ function destroy(req, res) {
     if (err) {return console.log(err)};
     for (wish of user.wishlist) {
       if (req.params.wish === wish._id.toString()) {
-        user.wishlist
+        var wishNum = user.wishlist.indexOf(wish);
+        user.wishlist.splice(wishNum, 1);
+        user.save(function(err, user) {
+          if (err) {return console.log(err)};
+          res.json(user);
+        });
       };
     };
   });
