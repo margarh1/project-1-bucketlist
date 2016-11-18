@@ -33,7 +33,7 @@ var sampleWishes = [
     location: "",
     dateToVisit: "",
     websiteLink: "",
-    imgUrl: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRM3xrG5U1-RX8vBuT2roOg5n1giS4if3PAg7wtB05-Wbs0tisD",
+    imgUrl: "",
     description: "It's a classic game and it's a shame I've never played it before",
     tags: ["board game"],
     status: "Pending",
@@ -47,7 +47,7 @@ var sampleWishes = [
     location: "California 93271",
     dateToVisit: "January 1, 2017",
     websiteLink: "https://www.nps.gov/seki/index.htm",
-    imgUrl: "http://www.grindtv.com/wp-content/uploads/2014/05/SequoiaNationalPark001.jpg",
+    imgUrl: "",
     description: "There's REALLY BIG TREES THERE!!!!!",
     tags: ["parks", "trees"],
     status: "Pending",
@@ -106,6 +106,7 @@ sampleUsers[1].friends.push(sampleUsers[2]);
 var db = require('../models');
 
 function index(req, res) {
+  // WHAT DOES THE OF DO?////////////////////////////////////////
   for (user of sampleUsers) {
     if (user.username === req.params.username) {
       res.json(user);

@@ -2,18 +2,22 @@ var db = require('./models');
 
 var sampleUsers = [
   {
+    email: 'onetwothree',
     username: 'onetwothree',
     password: '123',
     wishlist: [],
     friends: []
   },
   {
+
+    email: '23455',
     username: '23455',
     password: '34567',
     wishlist: [],
     friends: []
   },
   {
+    email:'23435467',
     username:'23435467',
     password: '23456789',
     wishlist: [],
@@ -29,7 +33,7 @@ var sampleWishes = [
     location: "",
     dateToVisit: "",
     websiteLink: "",
-    imgUrl: "",
+    imgUrl: "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRM3xrG5U1-RX8vBuT2roOg5n1giS4if3PAg7wtB05-Wbs0tisD",
     description: "It's a classic game and it's a shame I've never played it before",
     tags: ["board game"],
     status: "Pending",
@@ -42,7 +46,7 @@ var sampleWishes = [
     location: "California 93271",
     dateToVisit: "January 1, 2017",
     websiteLink: "https://www.nps.gov/seki/index.htm",
-    imgUrl: "",
+    imgUrl: "http://www.grindtv.com/wp-content/uploads/2014/05/SequoiaNationalPark001.jpg",
     description: "There's REALLY BIG TREES THERE!!!!!",
     tags: ["parks", "trees"],
     status: "Pending",
@@ -96,6 +100,8 @@ db.User.remove({}, function(err, users) {
   // sampleUsers[1].friends.push(sampleUsers[2]);
   // sampleUsers[2].friends.push(sampleUsers[0]);
 
+
+// WHAT IS CREATING?////////////////////////////////////////
   db.User.create(sampleUsers, function(err, users) {
     if (err) { return console.log('Error adding seed data: ' + err) }
     console.log("created " + users.length + ' users');

@@ -24,6 +24,7 @@ function create(req, res) {
 };
 
 function show(req, res) {
+
   db.User.findOne({username: req.params.username}, function(err, user) {
     if (err) {return console.log(err)};
     for (wish of user.wishlist) {

@@ -167,6 +167,3 @@ function editForm() {
 function updatedWishlist(json) {
   console.log(json);
 };
-
-
-
