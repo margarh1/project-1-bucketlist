@@ -2,18 +2,22 @@ var db = require('./models');
 
 var sampleUsers = [
   {
+    email: 'onetwothree',
     username: 'onetwothree',
     password: '123',
     wishlist: [],
     friends: []
   },
   {
+
+    email: '23455',
     username: '23455',
     password: '34567',
     wishlist: [],
     friends: []
   },
   {
+    email:'23435467',
     username:'23435467',
     password: '23456789',
     wishlist: [],
