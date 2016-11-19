@@ -48,7 +48,6 @@ $(document).ready(function() {
   $('#wishes').on('click', '.edit-button', editForm);
 
   $('#wishes').on('click', '.save-changes', function() {
-    console.log('save changes was clicked')
     var wishId = $(this).closest('.wish').attr('data-wish-id');
     var userId = $('#wishes').attr('data-user-id');
     var inputFields = $(this).closest('.wish').find('input');
@@ -89,7 +88,6 @@ $(document).ready(function() {
       };
     };
     updatedData = updatedData.join('&');
-    console.log(updatedData);
     $.ajax({
       method: 'PUT',
       url: '/api/user/' + userId + '/' + wishId,
@@ -153,7 +151,6 @@ function clearForm() {
 };
 
 function editForm() {
-  console.log('edit was clicked')
   $(this).text('Save Changes');
   $(this).toggleClass('save-changes').removeClass('edit-button');
   var inputSpans = $(this).closest('.wish').find('span');
@@ -165,5 +162,8 @@ function editForm() {
 };
 
 function updatedWishlist(json) {
-  console.log(json);
+  var updatedWish = '.wish[data-wish-id*=' + json._id + ']';
+  $(updatedWish).replaceWith(renderWishlist(json));
 };
+
+

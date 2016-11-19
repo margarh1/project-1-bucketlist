@@ -24,7 +24,6 @@ function create(req, res) {
 };
 
 function show(req, res) {
-
   db.User.findOne({username: req.params.username}, function(err, user) {
     if (err) {return console.log(err)};
     for (wish of user.wishlist) {
@@ -68,12 +67,13 @@ function update(req, res) {
         wish.contactInfo.phoneNumber = req.body.phoneNumber,
         wish.contactInfo.address = req.body.address,
         wish.contactInfo.email = req.body.email
+
+        user.save(function(err, user) {
+          if (err) {return console.log('error updating ' + user)};
+          res.json(wish);
+        });
       };
     };
-    user.save(function(err, user) {
-      if (err) {return console.log('error updating ' + user)};
-      res.json(user);
-    })
   });
 };
 

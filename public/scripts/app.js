@@ -17,12 +17,12 @@ function renderWishlist(json) {
   $('#wishes').append(wishHtml);
 };
 
-function renderFriendsList(json) {
-  var friendSource = $('#friend-template').html();
-  var friendTemplate = Handlebars.compile(friendSource);
-  var friendHtml = friendTemplate(json);
-  $('.row').append(friendHtml);
-}
+// function renderFriendsList(json) {
+//   var friendSource = $('#friend-template').html();
+//   var friendTemplate = Handlebars.compile(friendSource);
+//   var friendHtml = friendTemplate(json);
+//   $('.row').append(friendHtml);
+// }
 
 function renderAllWishlists(json) {
   json.forEach(function(user) {
