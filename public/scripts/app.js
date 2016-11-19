@@ -7,6 +7,11 @@ $(document).ready(function() {
     this.formAction = "http://localhost:3000/user/guest";
   });
 
+  $('.sign-up-button').on('click', function() {
+    console.log('sign up button was clicked')
+    this.formAction = "http://localhost:3000/signup";
+  });
+
 });
 
 function renderWishlist(json) {
