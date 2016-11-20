@@ -131,7 +131,6 @@ function onError(xhr, status, errorThrown) {
 };
 
 function newWishForm() {
-  console.log('add wish clicked');
   $('.new-form').show();
 };
 

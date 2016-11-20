@@ -3,14 +3,26 @@ body {
 }
 
 .profile-picture {
-margin-top: 100px;
 height: 200px;
 width: 200px;
 
+}
+
+.jumbotron {
+  margin-top: 40px;
+}
+
+.aside-container {
+  z-index: 1;
+  float: left;
 }
 
 .new-form {
   z-index: 1;
   background-color: #eeeeee;
   padding: 10px;
+}
+
+#wishes {
+  float: right;
 }

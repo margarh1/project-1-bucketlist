@@ -22,34 +22,32 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">Bucket List</a>
+          <a class="navbar-brand" href="../">Bucket List</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <form class="navbar-form navbar-right">
-
-            <button type="submit" class="btn btn-success to-homepage">Home</button>
-            <button type="submit" class="btn btn-success">Sign out</button>
             <div class="form-group">
               <input type="text" placeholder="Search" class="form-control">
             </div>
+            <button type="submit" class="btn btn-success">Sign out</button>
           </form>
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
-      <!-- PROFILE ASIDE  -->
-    <div class="aside-container col-md-4 col-xs-12">
-      <aside class="profile">
-        <img src="../img/user_profile_img.png"  class="profile-picture img-circle img-responsive ">
-        <button type="submit" class="btn btn-success">Friends</button>
-      </aside>
-    </div>
       <!-- wishList Beggining -->
-    <div class="jumbotron">
-      <button type="submit" class="btn btn-success add-wish">+Add</button>
-      <button type="submit" class="btn btn-success">Sort</button>
+    <div class="jumbotron clearfix">
+        <!-- PROFILE ASIDE  -->
+      <div class="aside-container col-md-2 col-md-offset-1 col-xs-12 col-xs-offset-4">
+        <aside class="profile">
+          <img src="../img/user_profile_img.png"  class="profile-picture img-circle img-responsive ">
+          <button type="button" class="btn btn-success">Friends</button>
+          <button type="button" class="btn btn-success add-wish">+Add</button>
+          <button type="button" class="btn btn-success">Sort</button>
+        </aside>
+      </div>
       <!-- new wish form -->
       <div class="col-md-8 col-xs-12 col-md-offset-1 new-form">
-        <form id="add-new-wish" class="col-md-8 col-md-offset-4 col-xs-12 col-xs-offset-3">
+        <form id="add-new-wish" class="col-md-8 col-md-offset-2 col-xs-12 col-xs-offset-3">
           <label for='name'>Wish Name:</label>
           <input type="text" name="name" required="true" /><br>
           <label for="type">What kind of wish is this?</label><br>
@@ -84,22 +82,22 @@
         </form>
       </div>
       <!-- end new wish form -->
-      <div class="container" id="wishes" data-user-id='{{user.username}}'>
+      <div class="container col-md-8 col-xs-12" id="wishes" data-user-id='{{user.username}}'>
         <script id="wish-template" type="text/x-handlebars-template">
           <div class="row wish \{{type}}" data-wish-id='\{{_id}}'>
-            <div class="col-md-8 col-md-offset-1">
+            <div class="col-md-12">
               <div class="panel panel-default">
                 <div class="panel-body">
                   <!-- begin wish internal row -->
 
                   <!-- Wish Image -->
                   <div class='row'>
-                    <div class="col-md-1 col-xs-12 thumbnail wish-art">
+                    <div class="col-md-2 col-xs-12 thumbnail wish-art">
                       <img src="\{{imgUrl}}" alt="wish-image">
                     </div>
 
                     <!-- Wish Item -->
-                    <div class="col-md-4 col-xs-12">
+                    <div class="col-md-5 col-xs-12">
                       <ul class="list-group">
                         <li class="list-group-item">
                           <h4 class='inline-header'>Name:</h4>
@@ -118,7 +116,7 @@
                           <span class='wish-date'>\{{dateToVisit}}</span>
                         </li>
                      </div>
-                     <div class="col-md-4 col-xs-12">
+                     <div class="col-md-5 col-xs-12">
                         <li class="list-group-item">
                           <h4 class='inline-header'>Description:</h4>
                           <span class='wish-description'>\{{description}}</span>
