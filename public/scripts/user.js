@@ -132,14 +132,6 @@ function onError(xhr, status, errorThrown) {
 function newWishForm() {
   console.log('add wish clicked');
   $('.new-form').show();
-  // $('#wishes').prepend($('.new-form'));
-  // renderWishlist();
-  // var newWish = $('.wish').eq(0);
-  // var inputSpans = newWish.find('span');
-  // for (var idx = 0; idx < inputSpans.length; idx++) {
-  //   var current = inputSpans[idx];
-  //   current.outerHTML = "<input class=" + current.className + "></input>";
-  // };
 };
 
 function deletedWishlist(json) {
@@ -152,9 +144,16 @@ function clearForm() {
   form.find('input').prop('value', '');
   form.find('textarea').prop('value', '');
   form.find('input:checked').prop('checked', false);
+  $('.new-form').hide();
 };
 
 function editForm() {
+  var editButtons = $(this).closest('div').find('button');
+  for (button of editButtons) {
+    if (!button.className.includes('edit-button')) {
+      $(button).prop('disabled', true);
+    };
+  };
   $(this).text('Save Changes');
   $(this).toggleClass('save-changes').removeClass('edit-button');
   var inputSpans = $(this).closest('.wish').find('span');

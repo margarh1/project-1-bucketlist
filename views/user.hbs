@@ -56,14 +56,16 @@
           <input type="radio" name="type" value="person" required="true" />Someone you want to see or meet<br>
           <input type="radio" name="type" value="place" />Somewhere you want to go<br>
           <input type="radio" name="type" value="thing" />Something you want to get<br>
-          <label for="price">How much is it?</label>
+          <label for="price">How much does it cost?</label>
           <input type="text" name="price" /><br>
           <label for="location">Where is it?</label>
           <input type="text" name="location"/><br>
           <label for="dateToVisit">When are you planning to go?</label>
           <input type="text" name="dateToVisit"/><br>
           <label for="websiteLink">Where can you find it on the Internet?</label>
-          <input type="text" name="websiteLink"/><br>
+          <input type="text" name="websiteLink" placeholder="Link to a website" /><br>
+          <label for="imgUrl">What does it look like?</label>
+          <input type="text" name="imgUrl" placeholder="Link to an image" /><br>
           <label for="description">Describe it:</label>
           <textarea name="description"></textarea><br>
           <label for="tags">Add some tags:</label>
@@ -82,7 +84,7 @@
         </form>
       </div>
       <!-- end new wish form -->
-      <div class="container" id="wishes" data-user-id='{{user.username}}' >
+      <div class="container" id="wishes" data-user-id='{{user.username}}'>
         <script id="wish-template" type="text/x-handlebars-template">
           <div class="row wish \{{type}}" data-wish-id='\{{_id}}'>
             <div class="col-md-8 col-md-offset-1">
