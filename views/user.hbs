@@ -49,31 +49,39 @@
       <button type="submit" class="btn btn-success">Sort</button>
       <div class="container" id="wishes" data-user-id='{{user.username}}' >
       <!-- new wish form -->
-      <form id="add-new-wish" class="col-md-6 col-xs-12">
-        <label for='name'>Wish Name:</label>
-        <input type="text" name="name" required="true" />
-        <label for="type">What kind of wish is this?</label>
-        <input type="radio" name="type" value="person" required="true" />Someone you want to see or meet
-        <input type="radio" name="type" value="place" />Somewhere you want to go
-        <input type="radio" name="type" value="thing" />Something you want to get
-        <label for="price">How much is it?</label>
-        <input type="text" name="price" />
-        <label for="location">Where is it?</label>
-        <input type="text" name="location"/>
-        <label for="dateToVisit">When are you planning to go?</label>
-        <input type="text" name="dateToVisit"/>
-        <label for="websiteLink">Where can you find it on the Internet?</label>
-        <input type="text" name="websiteLink"/>
-        <label for="description">Describe it:</label>
-        <textarea name="description"></textarea>
-        <label for="tags">Add some tags:</label>
-        <input type="text" name="tags"/>
-        <label for="status">Status?</label>
-        <input type="text" name="status"/>
-        <input type="hidden" name="contactInfo" defaultValue="{}">
-        <button type="submit">Add New Wish</button>
-        <button type="button" class="cancel-button">Cancel</button>
-      </form>
+      <div class="col-md-8 col-xs-12 col-md-offset-1 new-form">
+        <form id="add-new-wish" class="col-xs-12">
+          <label for='name'>Wish Name:</label>
+          <input type="text" name="name" required="true" /><br>
+          <label for="type">What kind of wish is this?</label><br>
+          <input type="radio" name="type" value="person" required="true" />Someone you want to see or meet<br>
+          <input type="radio" name="type" value="place" />Somewhere you want to go<br>
+          <input type="radio" name="type" value="thing" />Something you want to get<br>
+          <label for="price">How much is it?</label>
+          <input type="text" name="price" /><br>
+          <label for="location">Where is it?</label>
+          <input type="text" name="location"/><br>
+          <label for="dateToVisit">When are you planning to go?</label>
+          <input type="text" name="dateToVisit"/><br>
+          <label for="websiteLink">Where can you find it on the Internet?</label>
+          <input type="text" name="websiteLink"/><br>
+          <label for="description">Describe it:</label>
+          <textarea name="description"></textarea><br>
+          <label for="tags">Add some tags:</label>
+          <input type="text" name="tags"/><br>
+          <label for="status">Status?</label>
+          <input type="text" name="status"/><br>
+          <!-- <input type="hidden" name="contactInfo" defaultValue="{}"> -->
+          <label for="contactInfoPhone">Phone Number:</label>
+          <input type="text" name="contactInfoPhone" /><br>
+          <label for="contactInfoAddress">Address:</label>
+          <input type="text" name="contactInfoAddress" /><br>
+          <label for="contactInfoEmail">Email:</label>
+          <input type="text" name="contactInfoEmail" /><br>
+          <button type="submit">Add New Wish</button>
+          <button type="button" class="cancel-button">Cancel</button>
+        </form>
+      </div>
       <!-- end new wish form -->
         <script id="wish-template" type="text/x-handlebars-template">
           <div class="row wish \{{type}}" data-wish-id='\{{_id}}'>

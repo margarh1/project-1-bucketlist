@@ -30,6 +30,7 @@ $(document).ready(function() {
     form.find('input').prop('value', '');
     form.find('textarea').prop('value', '');
     form.find('input:checked').prop('checked', false);
+    $('.new-form').detach();
   });
 
   $('#add-new-wish').on('click', '.cancel-button', clearForm);
@@ -129,13 +130,14 @@ function onError(xhr, status, errorThrown) {
 
 function newWishForm() {
   console.log('add wish clicked');
-  renderWishlist();
-  var newWish = $('.wish').eq(0);
-  var inputSpans = newWish.find('span');
-  for (var idx = 0; idx < inputSpans.length; idx++) {
-    var current = inputSpans[idx];
-    current.outerHTML = "<input class=" + current.className + "></input>";
-  };
+  $('#wishes').prepend($('.new-form'));
+  // renderWishlist();
+  // var newWish = $('.wish').eq(0);
+  // var inputSpans = newWish.find('span');
+  // for (var idx = 0; idx < inputSpans.length; idx++) {
+  //   var current = inputSpans[idx];
+  //   current.outerHTML = "<input class=" + current.className + "></input>";
+  // };
 };
 
 function deletedWishlist(json) {
