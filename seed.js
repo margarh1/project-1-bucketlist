@@ -22,6 +22,13 @@ var sampleUsers = [
     password: '23456789',
     wishlist: [],
     friends: []
+  },
+  {
+    email: 'thisisatest@example.com',
+    username: 'testingempty',
+    password: 'testing',
+    wishlist: [],
+    friends: []
   }
 ];
 
@@ -87,12 +94,14 @@ var sampleContactInfo = [
 
 db.User.remove({}, function(err, users) {
   sampleUsers.forEach(function(user) {
-    var idx = 0;
-    for (wish of sampleWishes) {
-      wish.contactInfo = sampleContactInfo[idx];
-      idx++;
+    if (user.username !== 'testingempty') {
+      var idx = 0;
+      for (wish of sampleWishes) {
+        wish.contactInfo = sampleContactInfo[idx];
+        user.wishlist.push(sampleWishes[idx]);
+        idx++;
+      };
     };
-    user.wishlist = sampleWishes;
     // user.friends.push(sampleUsers[idx]);
   });
 

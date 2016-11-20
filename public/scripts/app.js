@@ -4,12 +4,7 @@ $(document).ready(function() {
 
   $('.create-bucket-list').on('click', function() {
     console.log('create bucket list was clicked')
-    this.formAction = "http://localhost:3000/user/guest";
-  });
-
-  $('.sign-up-button').on('click', function() {
-    console.log('sign up button was clicked')
-    this.formAction = "http://localhost:3000/signup";
+    this.formAction = "http://localhost:3000/user/testingempty";
   });
 
 });
