@@ -17,4 +17,16 @@ $(document).ready(function(){
     // })
 
 
+    // $('#login-form').on('submit', function(e) {
+    //   e.preventDefault();
+    //     // select the form and serialize its data
+    //       // note: this is the form because the event handler
+    //       //   was triggered from the form
+    //       var loginData = $(this).serialize();
+    //       // send POST request to /login with the form data
+    //       $.post('/login', loginData, function(response) {
+    //         console.log(response);
+    //       });
+    //     });
+
 });
