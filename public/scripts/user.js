@@ -14,10 +14,6 @@ $(document).ready(function() {
 
   $('.add-wish').on('click', newWishForm);
 
-  $('.to-homepage').on('click', function() {
-    this.formAction = 'http://localhost:3000/';
-  });
-
   $('#add-new-wish').on('submit', function(event) {
     event.preventDefault();
     $.ajax({
