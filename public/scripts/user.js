@@ -3,6 +3,7 @@ console.log('app.js is connected!');
 $(document).ready(function() {
 
   var userUrl = '/api/user/' + $('#wishes').attr('data-user-id');
+  $('.new-form').hide();
 
   $.ajax({
     method: 'GET',
@@ -30,7 +31,7 @@ $(document).ready(function() {
     form.find('input').prop('value', '');
     form.find('textarea').prop('value', '');
     form.find('input:checked').prop('checked', false);
-    $('.new-form').detach();
+    $('.new-form').hide();
   });
 
   $('#add-new-wish').on('click', '.cancel-button', clearForm);
@@ -91,7 +92,7 @@ $(document).ready(function() {
     updatedData = updatedData.join('&');
     $.ajax({
       method: 'PUT',
-      url: '/api/user/' + userId + '/' + wishId,
+      url: userUrl + '/' + wishId,
       data: updatedData,
       success: updatedWishlist,
       error: onError
@@ -130,7 +131,8 @@ function onError(xhr, status, errorThrown) {
 
 function newWishForm() {
   console.log('add wish clicked');
-  $('#wishes').prepend($('.new-form'));
+  $('.new-form').show();
+  // $('#wishes').prepend($('.new-form'));
   // renderWishlist();
   // var newWish = $('.wish').eq(0);
   // var inputSpans = newWish.find('span');
@@ -165,7 +167,10 @@ function editForm() {
 
 function updatedWishlist(json) {
   var updatedWish = '.wish[data-wish-id*=' + json._id + ']';
-  $(updatedWish).replaceWith(renderWishlist(json));
+  var wishSource = $('#wish-template').html();
+  var wishTemplate = Handlebars.compile(wishSource);
+  var wishHtml = wishTemplate(json);
+  $(updatedWish).replaceWith(wishHtml);
 };
 
 

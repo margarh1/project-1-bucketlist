@@ -77,8 +77,6 @@ function update(req, res) {
     if (err) {return console.log(err)};
     for (wish of user.wishlist) {
       if (req.params.wish === wish._id.toString()) {
-        console.log(req.body.phoneNumber);
-        console.log(wish.contactInfo);
         wish.name = req.body.name,
         wish.price = req.body.price,
         wish.location = req.body.location,
@@ -94,6 +92,7 @@ function update(req, res) {
           if (err) {return console.log('error updating ' + user)};
           res.json(wish);
         });
+        break;
       };
     };
   });

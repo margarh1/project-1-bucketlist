@@ -47,10 +47,9 @@
     <div class="jumbotron">
       <button type="submit" class="btn btn-success add-wish">+Add</button>
       <button type="submit" class="btn btn-success">Sort</button>
-      <div class="container" id="wishes" data-user-id='{{user.username}}' >
       <!-- new wish form -->
       <div class="col-md-8 col-xs-12 col-md-offset-1 new-form">
-        <form id="add-new-wish" class="col-xs-12">
+        <form id="add-new-wish" class="col-md-8 col-md-offset-4 col-xs-12 col-xs-offset-3">
           <label for='name'>Wish Name:</label>
           <input type="text" name="name" required="true" /><br>
           <label for="type">What kind of wish is this?</label><br>
@@ -83,6 +82,7 @@
         </form>
       </div>
       <!-- end new wish form -->
+      <div class="container" id="wishes" data-user-id='{{user.username}}' >
         <script id="wish-template" type="text/x-handlebars-template">
           <div class="row wish \{{type}}" data-wish-id='\{{_id}}'>
             <div class="col-md-8 col-md-offset-1">

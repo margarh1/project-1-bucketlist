@@ -8,3 +8,9 @@ height: 200px;
 width: 200px;
 
 }
+
+.new-form {
+  z-index: 1;
+  background-color: #eeeeee;
+  padding: 10px;
+}
