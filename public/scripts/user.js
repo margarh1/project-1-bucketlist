@@ -49,9 +49,18 @@ $(document).ready(function() {
 
   $('#wishes').on('click', '.edit-button', editForm);
 
+  $('#wishes').on('click', '.cancel-button', function() {
+    var wishId = $(this).closest('.wish').attr('data-wish-id');
+    $.ajax({
+      method: 'GET',
+      url: userUrl + '/' + wishId,
+      success: updatedWishlist,
+      error: onError
+    });
+  });
+
   $('#wishes').on('click', '.save-changes', function() {
     var wishId = $(this).closest('.wish').attr('data-wish-id');
-    var userId = $('#wishes').attr('data-user-id');
     var inputFields = $(this).closest('.wish').find('input');
     var updatedData = [];
     for (input of inputFields) {
@@ -148,12 +157,12 @@ function clearForm() {
 };
 
 function editForm() {
-  var editButtons = $(this).closest('div').find('button');
-  for (button of editButtons) {
+  for (button of $(this).closest('div').find('button')) {
     if (!button.className.includes('edit-button')) {
       $(button).prop('disabled', true);
     };
   };
+  $(this).closest('div').append("<button type='button' class='btn cancel-button'>Cancel</button>");
   $(this).text('Save Changes');
   $(this).toggleClass('save-changes').removeClass('edit-button');
   var inputSpans = $(this).closest('.wish').find('span');
