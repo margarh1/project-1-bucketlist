@@ -115,6 +115,7 @@ function renderWishlist(json) {
   var wishTemplate = Handlebars.compile(wishSource);
   var wishHtml = wishTemplate(json);
   $('#wishes').prepend(wishHtml);
+  hideEmpty(json._id);
 };
 
 function renderAllWishlists(json) {
@@ -148,6 +149,7 @@ function clearForm() {
 };
 
 function editForm() {
+  showEmpty($(this).closest('.wish').attr('data-wish-id'));
   for (button of $(this).closest('div').find('button')) {
     if (!button.className.includes('edit-button')) {
       $(button).prop('disabled', true);
@@ -170,6 +172,25 @@ function updatedWishlist(json) {
   var wishTemplate = Handlebars.compile(wishSource);
   var wishHtml = wishTemplate(json);
   $(updatedWish).replaceWith(wishHtml);
+  hideEmpty(json._id);
+};
+
+function hideEmpty(wishId) {
+  var currentWish = '.wish[data-wish-id*=' + wishId + ']';
+  for (span of $(currentWish).eq(0).find('span')) {
+    if (!span.textContent) {
+      $(span).closest('.list-group-item').hide();
+    };
+  };
+};
+
+function showEmpty(wishId) {
+  var currentWish = '.wish[data-wish-id*=' + wishId + ']';
+  for (span of $(currentWish).eq(0).find('span')) {
+    if (!span.textContent) {
+      $(span).closest('.list-group-item').show();
+    };
+  };
 };
 
 
