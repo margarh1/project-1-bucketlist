@@ -26,6 +26,22 @@ app.use(session({
   cookie: { maxAge: 30 * 60 * 1000 }
 }));
 
+// custom middleware - should go before routes
+ // adds a currentUser method to the request (req) that can find the user currently logged in based on the request's `session.userId`
+ app.use('/', function (req, res, next) {
+   req.currentUser = function (callback) {
+     User.findOne({_id: req.session.userId}, function (err, user) {
+       if (!user) {
+         callback("No User Found", null)
+       } else {
+         req.user = user;
+         callback(null, user);
+       }
+     });
+   };
+
+   next();
+ });
 
 
 // HTML
@@ -109,6 +125,16 @@ app.get('/profile', function (req, res) {
     }
   });
 });
+
+//server.js
+app.get('/logout', function (req, res) {
+  // remove the session user id
+  req.session.userId = null;
+  req.user = null;
+  // redirect to login (for now)
+  res.redirect('/login');
+});
+
 
 
 // run server

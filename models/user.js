@@ -34,7 +34,7 @@ bcrypt.genSalt(function (err, salt) {
       }, callback);
     });
   });
-};
+  };
 
 // authenticate user (when user logs in)
 UserSchema.statics.authenticate = function (email, password, callback) {
@@ -45,6 +45,8 @@ UserSchema.statics.authenticate = function (email, password, callback) {
 
    // throw error if can't find user
    if (!foundUser) {
+    //  $('#user-not-found').show();
+    //  $('#user-not-found').hide();
      console.log('No user with email ' + email);
      callback("Error: no user found", null);  // better error structures are available, but a string is good enough for now
    // if we found a user, check if password is correct

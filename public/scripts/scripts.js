@@ -29,4 +29,29 @@ $(document).ready(function(){
     //       });
     //     });
 
+    var email = $("#email");
+    var password= $("#password");
+
+// TO CHECK IF THERE IS A EMAIL MISMATCH TYPE AND SHOW A MESSAGE ON CLIENT SIDE
+//     email.addEventListener("keyup", function (event){
+//
+//       if (email.validity.typeMismatch){
+//         email.setCustomValidity("Invalid e-mail!");
+//       } else {
+//          email.setCustomValidity("");
+//       }
+//     })
+//
+// // TO CHECK IF IT IS A PASSWORD MATCH MINLENGTH AND SHOW A MESSAGE ON CLIENT SIDE
+//     password.addEventListener("keyup", function (event){
+//
+//       if (password.validity.minlengthMismatch){
+//         password.setCustomValidity("Invalid password!");
+//       } else {
+//          password.setCustomValidity("");
+//       }
+//     })
+
+
+
 });
