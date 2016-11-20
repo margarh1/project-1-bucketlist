@@ -35,12 +35,6 @@ app.get('/user/:username', function wishlist(req, res) {
     });
 });
 
-// app.get('/user/:username/:wish', function wish(req, res) {
-  // db.User.findOne({username: req.params.username}, function(err, foundUser) {
-  //   res.render('user', {user: foundUser})
-  // })
-// })
-
 // JSON
 app.get('/api/user/:username', controllers.wish.index);
 app.post('/api/user/:username', controllers.wish.create);

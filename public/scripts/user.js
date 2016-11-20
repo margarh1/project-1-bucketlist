@@ -117,14 +117,6 @@ function renderWishlist(json) {
   $('#wishes').prepend(wishHtml);
 };
 
-// function renderFriendsList(json) {
-//   var friendSource = $('#friend-template').html();
-//   var friendTemplate = Handlebars.compile(friendSource);
-//   var friendHtml = friendTemplate(json);
-//   console.log(friendHtml);
-//   $('#wishes').append(friendHtml);
-// };
-
 function renderAllWishlists(json) {
   json.wishlist.forEach(function(wishes) {
     renderWishlist(wishes);
