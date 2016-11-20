@@ -72,21 +72,24 @@ function destroy(req, res) {
 };
 
 function update(req, res) {
+  console.log(req.body)
   var tagsArr = req.body.tags.split();
   db.User.findOne({username: req.params.username}, function(err, user) {
     if (err) {return console.log(err)};
     for (wish of user.wishlist) {
       if (req.params.wish === wish._id.toString()) {
-        wish.name = req.body.name,
-        wish.price = req.body.price,
-        wish.location = req.body.location,
-        wish.dateToVisit = req.body.dateToVisit,
-        wish.description = req.body.description,
-        wish.tags = tagsArr,
+        wish.name = req.body.name
+        wish.price = req.body.price
+        wish.location = req.body.location
+        wish.dateToVisit = req.body.dateToVisit
+        wish.description = req.body.description
+        wish.tags = tagsArr
         wish.status = req.body.status
-        wish.contactInfo.phoneNumber = req.body.phoneNumber,
-        wish.contactInfo.address = req.body.address,
+        wish.contactInfo.phoneNumber = req.body.phoneNumber
+        wish.contactInfo.address = req.body.address
         wish.contactInfo.email = req.body.email
+        wish.websiteLink = req.body.websiteLink
+        wish.imgUrl = req.body.imgUrl
 
         user.save(function(err, user) {
           if (err) {return console.log('error updating ' + user)};

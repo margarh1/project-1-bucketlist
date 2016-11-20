@@ -96,6 +96,12 @@ $(document).ready(function() {
         case ('wish-contact-email'):
           updatedData.push('email=' + value);
           break;
+        case ('wish-website-link'):
+          updatedData.push('websiteLink=' + value);
+          break;
+        case ('wish-image-url'):
+          updatedData.push('imgUrl=' + value);
+          break;
       };
     };
     updatedData = updatedData.join('&');
@@ -155,6 +161,13 @@ function editForm() {
       $(button).prop('disabled', true);
     };
   };
+  var linksListItem = `<li class='list-group-item'>
+  <h4 class='inline-header'>Website Link:</h4>
+  <input class='wish-website-link' value='` + $(this).closest('.row').find('a').prop('href') +`'></input>
+  <h4 class='inline-header'>Image Url:</h4>
+  <input class='wish-image-url' value='` + $(this).closest('.row').find('img').eq(0).prop('currentSrc') + `'></input>
+  </li>`
+  $(this).closest('.row').find('ul:last').append(linksListItem);
   $(this).closest('div').append("<button type='button' class='btn cancel-button'>Cancel</button>");
   $(this).text('Save Changes');
   $(this).toggleClass('save-changes').removeClass('edit-button');
