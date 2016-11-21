@@ -121,6 +121,7 @@ function renderWishlist(json) {
 };
 
 function renderAllWishlists(json) {
+  console.log(json)
   json.wishlist.forEach(function(wishes) {
     renderWishlist(wishes);
   });
@@ -201,5 +202,3 @@ function showEmpty(wishId) {
     };
   };
 };
-
-

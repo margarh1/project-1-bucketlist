@@ -85,8 +85,9 @@ app.get('/signup', function(req, res) {
 app.post('/users', function(req, res) {
     console.log("email: " + req.body.email);
     console.log("password: " + req.body.password);
+    console.log("username: " + req.body.username);
     // use the email and password to authenticate here
-    User.createSecure(req.body.email, req.body.password, function(err, newUser) {
+    User.createSecure(req.body.email, req.body.password, req.body.username, function(err, newUser) {
 
         req.session.userId = newUser._id;
         res.redirect('/profile');
@@ -103,7 +104,7 @@ app.get('/login', function(req, res) {
 // authenticate the user and set the session
 app.post('/sessions', function (req, res) {
   // call authenticate function to check if password user entered is correct
-  User.authenticate(req.body.email, req.body.password, function (err, loggedInUser) {
+  User.authenticate(req.body.email, req.body.password, req.body.username, function (err, loggedInUser) {
     if (err){
       console.log('authentication error: ', err);
       res.status(500).send();
@@ -127,7 +128,7 @@ app.get('/profile', function (req, res) {
     } else {
       // render profile template with user's data
       console.log('loading profile of logged in user');
-      res.render('profile.hbs', {user: currentUser});
+      res.render('user.hbs', {user: currentUser});
     }
   });
 });
