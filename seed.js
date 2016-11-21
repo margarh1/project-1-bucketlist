@@ -94,7 +94,7 @@ var sampleContactInfo = [
 
 db.User.remove({}, function(err, users) {
   sampleUsers.forEach(function(user) {
-    if (user.username !== 'testingempty') {
+    if (user.username !== 'guest') {
       var idx = 0;
       for (wish of sampleWishes) {
         wish.contactInfo = sampleContactInfo[idx];
