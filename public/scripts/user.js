@@ -25,7 +25,7 @@ $(document).ready(function() {
     form.find('input').prop('value', '');
     form.find('textarea').prop('value', '');
     form.find('input:checked').prop('checked', false);
-    $('.new-form').hide();
+    $('.new-wish-form').hide();
   });
 
   $('#add-new-wish').on('click', '.cancel-button', clearForm);
@@ -145,7 +145,7 @@ function clearForm() {
   form.find('input').prop('value', '');
   form.find('textarea').prop('value', '');
   form.find('input:checked').prop('checked', false);
-  $('.new-form').hide();
+  $('.new-wish-form').hide();
 };
 
 function editForm() {
