@@ -26,3 +26,7 @@ width: 200px;
 #wishes {
   float: right;
 }
+
+.description {
+  vertical-align: top;
+}
