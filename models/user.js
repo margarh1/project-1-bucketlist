@@ -28,12 +28,41 @@ bcrypt.genSalt(function (err, salt) {
   bcrypt.hash(password, salt, function (err, hash) {
 
     // create the new user (save to db) with hashed password
-    UserModel.create({
-      email: email,
-      passwordDigest: hash
-    }, callback);
+      UserModel.create({
+        username: username,
+        email: email,
+        passwordDigest: hash
+      }, callback);
+    });
   });
-});
+  };
+
+// authenticate user (when user logs in)
+UserSchema.statics.authenticate = function (email, password, callback) {
+ // find user by email entered at log in
+ // remember `this` refers to the User for methods defined on userSchema.statics
+ this.findOne({email: email}, function (err, foundUser) {
+   console.log(foundUser);
+
+   // throw error if can't find user
+   if (!foundUser) {
+     $('#user-not-found').show();
+    //  $('#user-not-found').hide();
+     console.log('No user with email ' + email);
+     callback("Error: no user found", null);  // better error structures are available, but a string is good enough for now
+   // if we found a user, check if password is correct
+   } else if (foundUser.checkPassword(password)) {
+     callback(null, foundUser);
+   } else {
+     callback("Error: incorrect password", null);
+   }
+ });
+};
+
+// compare password user enters with hashed password (`passwordDigest`)
+UserSchema.methods.checkPassword = function (password) {
+  // run hashing algorithm (with salt) on password user enters in order to compare with `passwordDigest`
+  return bcrypt.compareSync(password, this.passwordDigest);
 };
 
 var User = mongoose.model('User', UserSchema);
