@@ -22,7 +22,10 @@
         <hr>
         <form id="signup-form" method="POST" action="/users">
           <div class="form-group">
-            <input type="email" id="email" name="email" class="form-control"  placeholder="Email" autofocus required>
+            <input type="text" id="username" name="username" class="form-control"  placeholder="Username" autofocus required>
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" name="email" class="form-control"  placeholder="Email@example.com" required>
           </div>
           <div class="form-group">
             <input type="password" id="password" name="password" class="form-control" placeholder="Password" minlength="8" required>

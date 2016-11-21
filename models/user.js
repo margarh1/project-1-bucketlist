@@ -29,6 +29,7 @@ bcrypt.genSalt(function (err, salt) {
 
     // create the new user (save to db) with hashed password
       UserModel.create({
+        username: username,
         email: email,
         passwordDigest: hash
       }, callback);
@@ -45,7 +46,7 @@ UserSchema.statics.authenticate = function (email, password, callback) {
 
    // throw error if can't find user
    if (!foundUser) {
-    //  $('#user-not-found').show();
+     $('#user-not-found').show();
     //  $('#user-not-found').hide();
      console.log('No user with email ' + email);
      callback("Error: no user found", null);  // better error structures are available, but a string is good enough for now
