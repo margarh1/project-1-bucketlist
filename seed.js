@@ -25,7 +25,7 @@ var sampleUsers = [
   },
   {
     email: 'thisisatest@example.com',
-    username: 'testingempty',
+    username: 'guest',
     password: 'testing',
     wishlist: [],
     friends: []

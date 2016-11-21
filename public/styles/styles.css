@@ -1,6 +1,6 @@
 body {
-  background-color: lightblue; /*Sanity Check*/
-}
+/*  background-color: lightblue; /*Sanity Check*/
+*/}
 
 .profile-picture {
 height: 200px;
@@ -30,3 +30,37 @@ width: 200px;
 .description {
   vertical-align: top;
 }
+
+.nav-btn {
+  margin: 7px 2px;
+}
+
+.search {
+  padding-right: 2px;
+}
+
+h1 {
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+#quote {
+  font-size: 30px;
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+.carousel-caption {
+  background-color: rgba(211,211,211,0.5);
+  text-shadow: black 2px 2px 2px;
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#author {
+  font-size: 24px;
+}
+
+
+
+
+

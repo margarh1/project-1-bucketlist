@@ -6,7 +6,7 @@ var WishSchema = new Schema({
   name: String,
   type: String,
   price: String,
-  location: String, // possibly change to API object in future
+  location: String,
   dateToVisit: String,
   websiteLink: String,
   imgUrl: String,
