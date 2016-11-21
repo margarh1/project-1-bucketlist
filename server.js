@@ -36,6 +36,13 @@ app.get('/user/:username', function wishlist(req, res) {
 });
 
 // JSON
+app.get('/api/user', function(req, res) {
+  db.User.find({}, function(err, allUsers) {
+    if (err) {return console.log(err)};
+    res.json(allUsers);
+  });
+});
+
 app.get('/api/user/:username', controllers.wish.index);
 app.post('/api/user/:username', controllers.wish.create);
 app.get('/api/user/:username/:wish', controllers.wish.show);
