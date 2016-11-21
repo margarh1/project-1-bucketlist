@@ -1,9 +1,7 @@
-console.log('app.js is connected!');
-
 $(document).ready(function() {
 
   var userUrl = '/api/user/' + $('#wishes').attr('data-user-id');
-  $('.new-form').hide();
+  $('.new-wish-form').hide();
 
   $.ajax({
     method: 'GET',
@@ -116,7 +114,7 @@ function renderWishlist(json) {
   var wishSource = $('#wish-template').html();
   var wishTemplate = Handlebars.compile(wishSource);
   var wishHtml = wishTemplate(json);
-  $('#wishes').prepend(wishHtml);
+  $('.new-wish-form').after(wishHtml);
   hideEmpty(json._id);
 };
 
@@ -134,7 +132,7 @@ function onError(xhr, status, errorThrown) {
 };
 
 function newWishForm() {
-  $('.new-form').show();
+  $('.new-wish-form').show();
 };
 
 function deletedWishlist(json) {
