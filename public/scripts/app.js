@@ -2,9 +2,19 @@ console.log('app.js is connected!');
 
 $(document).ready(function() {
 
-  // $('.create-bucket-list').on('click', function() {
-  //   this.formAction = "http://localhost:3000/user/testingempty";
-  // });
+  $('.learnMoreText').hide();
+
+  $('.learn-more').on('click', function() {
+    console.log('learn more clicked')
+    $('.textOnLoad').slideUp();
+    $('.learnMoreText').slideDown();
+  });
+
+  $('.learn-more').on('dblclick', function() {
+    console.log('learn more clicked')
+    $('.textOnLoad').slideDown();
+    $('.learnMoreText').slideUp();
+  });
 
 });
 

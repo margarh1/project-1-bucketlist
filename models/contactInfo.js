@@ -3,7 +3,7 @@ var mongoose = require('mongoose'),
 
 var ContactInfoSchema = new Schema({
   phoneNumber: String,
-  address: String, // change to API object later?
+  address: String,
   email: String
 });
 

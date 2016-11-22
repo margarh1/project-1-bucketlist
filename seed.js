@@ -28,7 +28,7 @@ var sampleUsers = [
   },
   {
     email: 'thisisatest@example.com',
-    username: 'testingempty',
+    username: 'guest',
     password: 'testing',
     profileImage: './public/img/user_profile_img.png',
     wishlist: [],
@@ -98,7 +98,7 @@ var sampleContactInfo = [
 
 db.User.remove({}, function(err, users) {
   sampleUsers.forEach(function(user) {
-    if (user.username !== 'testingempty') {
+    if (user.username !== 'guest') {
       var idx = 0;
       for (wish of sampleWishes) {
         wish.contactInfo = sampleContactInfo[idx];
@@ -106,17 +106,10 @@ db.User.remove({}, function(err, users) {
         idx++;
       };
     };
-    // user.friends.push(sampleUsers[idx]);
   });
-
-  // sampleUsers[0].friends.push(sampleUsers[1]);
-  // sampleUsers[1].friends.push(sampleUsers[2]);
-  // sampleUsers[2].friends.push(sampleUsers[0]);
-
 
   db.User.create(sampleUsers, function(err, users) {
     if (err) { return console.log('Error adding seed data: ' + err) }
-    console.log("created " + users.length + ' users');
     process.exit();
   });
 });

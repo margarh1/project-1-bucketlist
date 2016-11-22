@@ -25,7 +25,7 @@ app.use(session({
   cookie: { maxAge: 30 * 60 * 1000 }
 }));
 
-// custom middleware 
+// custom middleware
  // adds a currentUser method to the request (req) that can find the user currently logged in based on the request's `session.userId`
  app.use('/', function (req, res, next) {
    req.currentUser = function (callback) {
@@ -101,12 +101,8 @@ app.post('/sessions', function (req, res) {
   // call authenticate function to check if password user entered is correct
   User.authenticate(req.body.email, req.body.password, req.body.username, function (err, loggedInUser) {
     if (err){
-
-      console.log('authentication error: ', err);
         res.redirect('/login');
-
     } else {
-      console.log('setting session user id ', loggedInUser._id);
       req.session.userId = loggedInUser._id;
       res.redirect('/profile');
     }
@@ -115,16 +111,13 @@ app.post('/sessions', function (req, res) {
 
 // show user profile page
 app.get('/profile', function (req, res) {
-  console.log('session user id: ', req.session.userId);
   // find the user currently logged in
   User.findOne({_id: req.session.userId}, function (err, currentUser) {
 
     if (err){
-      console.log('database error: ', err);
       res.redirect('/login');
     } else {
       // render profile template with user's data
-      console.log('loading profile of logged in user');
       res.render('user.hbs', {user: currentUser});
     }
   });
