@@ -107,7 +107,8 @@ app.post('/sessions', function (req, res) {
   User.authenticate(req.body.email, req.body.password, req.body.username, function (err, loggedInUser) {
     if (err){
       console.log('authentication error: ', err);
-      res.status(500).send();
+      // res.status(500).send();
+      res.redirect('login');
     } else {
       console.log('setting session user id ', loggedInUser._id);
       req.session.userId = loggedInUser._id;

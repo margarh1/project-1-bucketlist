@@ -8,6 +8,7 @@ var UserSchema = new Schema({
   username: String,
   email: String,
   passwordDigest: String,
+  profileImage: String,
   wishlist: [Wish.schema],
   friends: [{
     type: Schema.Types.ObjectId,
