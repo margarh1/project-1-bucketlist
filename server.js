@@ -6,7 +6,6 @@ var session = require('express-session');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var app = express();
-// mongoose.connect('mongodb://localhost/project-1-bucketlist');
 var controllers = require('./controllers');
 var db = require('./models');
 var User = require('./models/user');

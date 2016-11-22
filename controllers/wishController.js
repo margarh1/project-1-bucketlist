@@ -10,7 +10,6 @@ function index(req, res) {
 };
 
 function create(req, res) {
-  console.log(req.body)
   var newContactInfo = {
     phoneNumber: req.body.contactInfoPhone,
     address: req.body.contactInfoAddress,
@@ -37,7 +36,6 @@ function create(req, res) {
     user.wishlist.push(newWish);
     user.save(function(err, user) {
       if (err) { return console.log('error creating ' + newWish.name) }
-      console.log('created ' + newWish.name);
       res.json(newWish);
     });
   });
@@ -72,7 +70,6 @@ function destroy(req, res) {
 };
 
 function update(req, res) {
-  console.log(req.body)
   var tagsArr = req.body.tags.split();
   db.User.findOne({username: req.params.username}, function(err, user) {
     if (err) {return console.log(err)};

@@ -20,57 +20,55 @@
   </head>
   <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-          <div class="navbar-header">
-            <a class="navbar-brand" href="#">Bucket List</a>
-          </div>
-          <div id="navbar" class="navbar-collapse collapse">
-            <!-- LOG IN AND SIGN UP -->
-            <button type="button" class="btn btn-success log-in-button navbar-right nav-btn" onclick="location.href='../login'">Log in</button>
-            <button type="button" class="btn btn-success sign-up-button navbar-right nav-btn" onclick="location.href='../signup'">Sign up</button>
-            <form class="navbar-form navbar-right search">
-              <!-- Search form -->
-              <form action="https://localhost:3000" method="GET">
-                <input type="text" name="q" placeholder="search" class="form-control">
-              </form>
-            </form>
-
-          </div><!--/.navbar-collapse -->
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Bucket List</a>
         </div>
-      </nav>
+        <div id="navbar" class="navbar-collapse collapse">
+          <!-- LOG IN AND SIGN UP -->
+          <button type="button" class="btn btn-success log-in-button navbar-right nav-btn" onclick="location.href='../login'">Log in</button>
+          <button type="button" class="btn btn-success sign-up-button navbar-right nav-btn" onclick="location.href='../signup'">Sign up</button>
+          <form class="navbar-form navbar-right search">
+            <!-- Search form -->
+            <form action="https://localhost:3000" method="GET">
+              <input type="text" name="q" placeholder="search" class="form-control">
+            </form>
+          </form>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
       <!-- Learn how to use the app -->
-      <div class="jumbotron">
-        <div class="container">
-          <div id="mycarousel" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-              <div class="item active">
-              <img src="../img/sky_jump_header.jpg" alt="" class="img-responsive">
-                <div class="carousel-caption">
-                  <div class='textOnLoad'>
-                    <h1>Bucket List</h1>
-                    <p id="quote">"Make your life a masterpiece; imagine no limitations on what you can be, have or do."</p>
-                    <p id="author">- Brian Tracy</p>
-                  </div>
-                  <p><button type="button" class="btn btn-lg btn-success create-bucket-list" onclick="location.href='../user/guest'">Create Bucket List!</button>
-                  <a class="btn btn-primary btn-lg learn-more" role="button">Learn more &raquo;</a></p>
-                  <div class="learnMoreText">
-                    <p>Store. Track. Reference. Share.</p>
-                    <p>This is an app that lets you keep all of those
-                    bucketlist type items in a single place. Places you've always wanted to visit, things you've always wanted to get, people you've always wanted to meet, you can store all of them here and share them with friends who might want to share in your experiences.</p>
-                    <p>Give us a shot by clicking on the button above.</p>
-                  </div>
+    <div class="jumbotron">
+      <div class="container">
+        <div id="mycarousel" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="item active">
+            <img src="../img/sky_jump_header.jpg" alt="" class="img-responsive">
+              <div class="carousel-caption">
+                <div class='textOnLoad'>
+                  <h1>Bucket List</h1>
+                  <p id="quote">"Make your life a masterpiece; imagine no limitations on what you can be, have or do."</p>
+                  <p id="author">- Brian Tracy</p>
+                </div>
+                <p><button type="button" class="btn btn-lg btn-success create-bucket-list" onclick="location.href='../user/guest'">Create Bucket List!</button>
+                <a class="btn btn-primary btn-lg learn-more" role="button">Learn more &raquo;</a></p>
+                <div class="learnMoreText">
+                  <p>Store. Track. Reference. Share.</p>
+                  <p>This is an app that lets you keep all of those
+                  bucketlist type items in a single place. Places you've always wanted to visit, things you've always wanted to get, people you've always wanted to meet, you can store all of them here and share them with friends who might want to share in your experiences.</p>
+                  <p>Give us a shot by clicking on the button above.</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
+    </div>
 <!-- Footer -->
-     <div class="container">
-        <footer>
-          <p>&copy; 2016 Margaret Ha and Sol Beniquez @ GA</p>
-        </footer>
-      </div> <!-- /container -->
+    <div class="container">
+      <footer>
+        <p>&copy; 2016 Margaret Ha and Sol Beniquez @ GA</p>
+      </footer>
+    </div> <!-- /container -->
   </body>
 </html>
