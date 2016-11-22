@@ -28,7 +28,7 @@ $(document).ready(function() {
     $('.new-wish-form').hide();
   });
 
-  $('#add-new-wish').on('click', '.cancel-button', clearForm);
+  $('#add-new-wish').on('click', '.form-cancel-button', clearForm);
 
   $('#wishes').on('click', '.delete-button', function() {
     var wishId = $(this).closest('.wish').attr('data-wish-id');
