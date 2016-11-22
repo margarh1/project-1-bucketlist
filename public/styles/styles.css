@@ -1,5 +1,5 @@
 body {
-  background-color: lightblue; /*Sanity Check*/
+  background-color: white; /*Sanity Check*/
 }
 
 .profile-picture {
@@ -25,4 +25,13 @@ width: 200px;
 
 #wishes {
   float: right;
+}
+
+.form {
+  margin-top: 60px;
+}
+
+#user-not-found {
+
+  display: none;
 }

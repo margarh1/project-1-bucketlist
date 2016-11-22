@@ -8,6 +8,7 @@ var UserSchema = new Schema({
   username: String,
   email: String,
   passwordDigest: String,
+  profileImage: String,
   wishlist: [Wish.schema],
   friends: [{
     type: Schema.Types.ObjectId,
@@ -17,14 +18,11 @@ var UserSchema = new Schema({
 
 // create a new user with secure (hashed) password
 UserSchema.statics.createSecure = function (email, password, username, callback) {
-// `this` references our user model, since this function will be called from the model itself
-// store it in variable `UserModel` because `this` changes context in nested callbacks
 
 var UserModel = this;
 
 // hash password user enters at sign up
 bcrypt.genSalt(function (err, salt) {
-  console.log('salt: ', salt);  // changes every time
   bcrypt.hash(password, salt, function (err, hash) {
 
     // create the new user (save to db) with hashed password
@@ -42,13 +40,9 @@ UserSchema.statics.authenticate = function (email, password, username, callback)
  // find user by email entered at log in
  // remember `this` refers to the User for methods defined on userSchema.statics
  this.findOne({username: username}, function (err, foundUser) {
-   console.log(foundUser);
 
    // throw error if can't find user
    if (!foundUser) {
-    //  $('#user-not-found').show();
-    //  $('#user-not-found').hide();
-     console.log('No user with username ' + email);
      callback("Error: no user found", null);  // better error structures are available, but a string is good enough for now
    // if we found a user, check if password is correct
    } else if (foundUser.checkPassword(password)) {

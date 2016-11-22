@@ -1,12 +1,13 @@
-console.log("SignUp and LogIn scripts connected!!");
+
 
 $(document).ready(function(){
 
-  $('#user-not-found').hide();
+//
+// $("#user-not-found").hide();
 
-
-
-
-
+// var hiddenBox = $( "#user-not-found");
+// $( "form-group" ).on( "click", function( event ) {
+//   hiddenBox.show();
+// });
 
 });

@@ -5,6 +5,7 @@ var sampleUsers = [
     email: 'onetwothree',
     username: 'onetwothree',
     password: '123',
+    profileImage: '../img/user_profile_img.png',
     wishlist: [],
     friends: []
   },
@@ -13,6 +14,7 @@ var sampleUsers = [
     email: '23455',
     username: '23455',
     password: '34567',
+    profileImage: '../img/user_profile_img.png',
     wishlist: [],
     friends: []
   },
@@ -20,6 +22,7 @@ var sampleUsers = [
     email:'23435467',
     username:'23435467',
     password: '23456789',
+    profileImage: '/public/img/user_profile_img.png',
     wishlist: [],
     friends: []
   },
@@ -27,6 +30,7 @@ var sampleUsers = [
     email: 'thisisatest@example.com',
     username: 'testingempty',
     password: 'testing',
+    profileImage: './public/img/user_profile_img.png',
     wishlist: [],
     friends: []
   }
@@ -110,7 +114,6 @@ db.User.remove({}, function(err, users) {
   // sampleUsers[2].friends.push(sampleUsers[0]);
 
 
-// WHAT IS CREATING?////////////////////////////////////////
   db.User.create(sampleUsers, function(err, users) {
     if (err) { return console.log('Error adding seed data: ' + err) }
     console.log("created " + users.length + ' users');
