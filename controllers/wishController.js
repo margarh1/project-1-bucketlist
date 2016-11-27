@@ -36,13 +36,15 @@ function create(req, res) {
     user.wishlist.push(newWish);
     user.save(function(err, user) {
       if (err) { return console.log('error creating ' + newWish.name) }
-      res.json(newWish);
+      // TODO: You are sending a newWish object back to the client, which is not a json object OR an actual DB entry; is this the intended response?
+            res.json(newWish);
     });
   });
 };
 
 function show(req, res) {
   db.User.findOne({username: req.params.username}, function(err, user) {
+    console.log(req.params.wish);
     if (err) {return console.log(err)};
     for (wish of user.wishlist) {
       if (req.params.wish === wish._id.toString()) {
@@ -73,6 +75,7 @@ function update(req, res) {
   var tagsArr = req.body.tags.split();
   db.User.findOne({username: req.params.username}, function(err, user) {
     if (err) {return console.log(err)};
+    // TODO: This is too big. Is there an easier way of updating this? -jc
     for (wish of user.wishlist) {
       if (req.params.wish === wish._id.toString()) {
         wish.name = req.body.name

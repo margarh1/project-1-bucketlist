@@ -14,6 +14,7 @@ $(document).ready(function() {
 
   $('#add-new-wish').on('submit', function(event) {
     event.preventDefault();
+    console.log(userUrl);
     $.ajax({
       method: 'POST',
       url: userUrl,
@@ -30,6 +31,7 @@ $(document).ready(function() {
 
   $('#add-new-wish').on('click', '.form-cancel-button', clearForm);
 
+  // TODO: some selectors are using anonymous functions, some arent. Please stick to one chosen convention -jc
   $('#wishes').on('click', '.delete-button', function() {
     var wishId = $(this).closest('.wish').attr('data-wish-id');
     var userId = userUrl + '/' + wishId;
@@ -44,6 +46,7 @@ $(document).ready(function() {
   $('#wishes').on('click', '.edit-button', editForm);
 
   $('#wishes').on('click', '.cancel-button', function() {
+    // TODO: hitting the cancel button re-calls all of a user's wishes again? That is not very efficient -jc
     var wishId = $(this).closest('.wish').attr('data-wish-id');
     $.ajax({
       method: 'GET',
@@ -59,6 +62,7 @@ $(document).ready(function() {
     var updatedData = [];
     for (input of inputFields) {
       var value = encodeURIComponent(input.value);
+      // TODO - Switch cases are almost never used in web development.  Is there a more efficient way of handling this? -jc
       switch (input.className) {
         case ('wish-name'):
           updatedData.push('name=' + value);
@@ -148,6 +152,7 @@ function clearForm() {
   $('.new-wish-form').hide();
 };
 
+// TODO: this function is huge, it could use a comment explaining the methodology -jc
 function editForm() {
   showEmpty($(this).closest('.wish').attr('data-wish-id'));
   for (button of $(this).closest('div').find('button')) {
@@ -155,6 +160,7 @@ function editForm() {
       $(button).prop('disabled', true);
     };
   };
+  // TODO: can you use hbs for this? -jc
   var linksListItem = `<li class='list-group-item'>
   <h4 class='inline-header'>Website Link:</h4>
   <input class='wish-website-link' value='` + $(this).closest('.row').find('a').prop('href') +`'></input>
@@ -166,6 +172,7 @@ function editForm() {
   $(this).text('Save Changes');
   $(this).toggleClass('save-changes').removeClass('edit-button');
   var inputSpans = $(this).closest('.wish').find('span');
+  // TODO: this could use its own comment explaining what is going on -jc
   for (var idx = 0; idx < inputSpans.length; idx++) {
     var current = inputSpans[idx];
     current.outerHTML = "<input class=" + current.className + "></input>";

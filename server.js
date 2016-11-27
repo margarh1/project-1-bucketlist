@@ -8,6 +8,9 @@ var mongoose = require('mongoose');
 var app = express();
 var controllers = require('./controllers');
 var db = require('./models');
+// TODO: User could simply be assigned like so:
+//  var User = db.User;
+// -jc
 var User = require('./models/user');
 
 app.use(express.static(__dirname + '/public'));
@@ -21,6 +24,7 @@ app.use(bodyParser.urlencoded({
 app.use(session({
   saveUninitialized: true,
   resave: true,
+  // TODO: change this to non-default secret - jc
   secret: 'SuperSecretCookie',
   cookie: { maxAge: 30 * 60 * 1000 }
 }));
@@ -48,6 +52,7 @@ app.get('/', function homepage(req, res) {
     res.sendFile(__dirname + '/views/index.html');
 });
 
+// TODO: when I am logged out and try to access a user (i.e. localhost:3000/user/jeffgoldblum) I am shown a profile page with the options to create a wish. Should this be possible? -jc
 app.get('/user/:username', function wishlist(req, res) {
     User.findOne({
         username: req.params.username
@@ -59,6 +64,7 @@ app.get('/user/:username', function wishlist(req, res) {
 });
 
 // JSON
+// TODO: this endpoint gives an unsanitized dump of your entire user base. Is that appropriate to have public? -jc
 app.get('/api/user', function(req, res) {
   db.User.find({}, function(err, allUsers) {
     if (err) {return console.log(err)};
@@ -101,6 +107,7 @@ app.post('/sessions', function (req, res) {
   // call authenticate function to check if password user entered is correct
   User.authenticate(req.body.email, req.body.password, req.body.username, function (err, loggedInUser) {
     if (err){
+        // TODO: could you render this with an added error json object?
         res.redirect('/login');
     } else {
       req.session.userId = loggedInUser._id;
@@ -113,7 +120,6 @@ app.post('/sessions', function (req, res) {
 app.get('/profile', function (req, res) {
   // find the user currently logged in
   User.findOne({_id: req.session.userId}, function (err, currentUser) {
-
     if (err){
       res.redirect('/login');
     } else {
