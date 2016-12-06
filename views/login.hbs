@@ -30,9 +30,12 @@
         <hr>
 
         <form id="login-form" method="POST" action="/sessions">
+          <!-- TODO: When will this error message be displayed? There doesn't seem to be any logic in script.js or on server.js to notify of an error -->
+          {{ #if error}}
           <div class="alert alert-danger" id="user-not-found" role="alert">
             <strong>Oh snap!</strong> <a href="#" class="alert-link">Email or/and password not found!</a> Try submitting again.
           </div>
+          {{/if}}
           <div class="form-group">
             <input type="text" id="username" name="username" class="form-control"  placeholder="Username" autofocus required>
           </div>
